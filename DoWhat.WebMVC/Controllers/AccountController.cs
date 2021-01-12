@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using DoWhat.WebMVC.Models;
+using DoWhat.Data;
 
 namespace DoWhat.WebMVC.Controllers
 {

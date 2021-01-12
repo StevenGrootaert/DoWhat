@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using DoWhat.WebMVC.Models;
+using DoWhat.Data;
 
 namespace DoWhat.WebMVC
 {
