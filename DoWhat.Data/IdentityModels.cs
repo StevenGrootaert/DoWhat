@@ -32,7 +32,10 @@ namespace DoWhat.Data
             return new ApplicationDbContext();
         }
 
-        public DbSet<Assignment> assignments { get; set } // can't use task!!?!! it likes an s at the end too for plural.. 
+        public DbSet<Assignment> Assignments { get; set; } 
+        public DbSet<Catagory> Catagories { get; set; } 
+        public DbSet<Resource> Resources { get; set; } 
+        public DbSet<Thing> Things { get; set; } 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
