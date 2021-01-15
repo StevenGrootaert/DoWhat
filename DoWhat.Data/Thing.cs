@@ -23,7 +23,7 @@ namespace DoWhat.Data
         public string Heading { get; set; }
 
         //[Display(Name = "Task Summary")]
-        [MaxLength(500, ErrorMessage = "Subheading can not be more than 500 charaters")]
+        [MaxLength(300, ErrorMessage = "Subheading can not be more than 300 charaters")]
         public string SubHeading { get; set; }
 
         //       ** can't create CRUD for thing w/out having catagory in place **

@@ -1,0 +1,104 @@
+﻿@model IEnumerable<DoWhat.Models.ThingListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+        @TempData["SaveResult"]
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+    </div>
+}
+<table class="table">
+    <tr>
+        <th>
+            @* will replace this with catagory in time *@
+            @Html.DisplayNameFor(model => model.ThingId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Heading)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubHeading)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeAlloted)
+        </th>
+        <th>
+            @* The index view will onnly show !completed things make another view with ALL things completed +!completed *@
+            @Html.DisplayNameFor(model => model.IsCompleted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThingId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Heading)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubHeading)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeAlloted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsCompleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedUtc)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ThingId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ThingId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ThingId })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section scripts {
+    <script language="javascript" type="text/javascript">
+     $(document).ready(function () {
+         $("i[data-toggle='check']")
+             .css({ "cursor": "pointer" })
+             .click(function (e) {
+                 var target = $(e.target);
+                 var thingId = target.attr("data-id");
+                 var checkSet = target.hasClass("glyphicon-check");
+
+                 $.ajax({
+                     method: checkSet ? "DELETE" : "PUT",
+                     url: "/api/Thing/" + thingId + "/check",
+                     data: null
+                 })
+                 .done(function (r) {
+                     target.removeClass();
+                     target.addClass("glyphicon " + (checkSet ? "glyphicon-unchecked" : "glyphicon-check"));
+                 })
+                 .fail(function (r) {
+                     alert("Failed to change check status");
+                 });
+             });
+     });
+    </script>
+}

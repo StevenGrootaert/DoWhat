@@ -1,0 +1,67 @@
+﻿@model DoWhat.Models.ThingDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ThingDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ThingId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThingId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Heading)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Heading)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SubHeading)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubHeading)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsCompleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsCompleted)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedUtc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedUtc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ThingId }) |
+    @Html.ActionLink("DELETE", "Delete", new { id = Model.ThingId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
