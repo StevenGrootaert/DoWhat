@@ -19,7 +19,7 @@ namespace DoWhat.Models
         [Display(Name = "Category Name")]       // selected from a dropdown of seeded default catagories?
         public int CatagoryId { get; set; }
 
-        [Display(Name = "Additional Notes")]    // maybe just call this resources?
+        [Display(Name = "Additional Notes")]    // maybe just call this resources? Is this a list or resources??
         public int ResourceId { get; set; }
 
         [Display(Name = "Added")]

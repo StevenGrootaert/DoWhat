@@ -87,7 +87,6 @@ namespace DoWhat.WebMVC.Controllers
             return View(model);
         }
 
-
         [ActionName("Delete")] // do other things need action names?? 
         public ActionResult Delete(int id)
         {

@@ -8,23 +8,24 @@
     <p><a href="https://asp.net" class="btn btn-primary btn-lg">Get Started / How it works?  &raquo;</a></p>
     @* how do I change this pages based if you are logged in or not? This index should look different (or logged in users should have a page) that's different. *@
 </div>
-@* These buttone below should be what a logged in person sees as they add Things and use the app functionally. None logged in user should just see a home page that tells them about the app and examples of how it works etc. *@
+@* These buttons below should be what a logged in person sees as they add Things and use the app functionally. None logged in user should just see a home page that tells them about the app and examples of how it works etc. *@
 <div class="row">
     <div class="col-md-4">
-        <h2>Things</h2>
+        <h2>Things to do</h2>
         <p>
-            Have to do a thing - got things to do.
+            Have to do a thing - got things you want to do.
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Make a thing &raquo;</a></p>
+        <p>@Html.ActionLink("thing index", "Index", "Thing", null, new { @class = "btn btn-default btn-large" })</p>
+        
     </div>
     <div class="col-md-4">
-        <h2>Catagorize</h2>
-        <p>Put you things in order. Make catagories for different areas in your life that need doing.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Make a Catagory &raquo;</a></p>
+        <h2>Catagorize Things</h2>
+        <p>Put your things in order. Make catagories for different areas in your life that need doing.</p>
+        <p>@Html.ActionLink("catagory index", "Index", "Catagory", null, new { @class = "btn btn-default btn-large" })</p>
     </div>
     <div class="col-md-4">
-        <h2>"Research"</h2>
-        <p>Add resources and notes about the things you want or need to do.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Add Research &raquo;</a></p>
+        <h2>Things about Things</h2>
+        <p>Add resources and notes to the Things you want or need to do.</p>
+        <p>@Html.ActionLink("resource index", "Index", "Resource", null, new { @class = "btn btn-default btn-large" })</p>
     </div>
 </div>

@@ -26,7 +26,7 @@ namespace DoWhat.Data
         [Display(Name = "Catagory Description")]
         public string Description { get; set; }
 
-        //public IList<Thing> Things { get; set; }    // will this allow me to list all the Things that belong to a catagory?
- 
+        //public IList<Thing> Things { get; set; }    // will this allow me to list all the Things that belong to this catagoryId?
+
     }
 }
