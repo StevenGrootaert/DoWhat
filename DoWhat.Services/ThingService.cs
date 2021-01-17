@@ -28,8 +28,7 @@ namespace DoWhat.Services
                     {
                         ThingId = e.ThingId,
                         Heading = e.Heading,
-                        SubHeading = e.SubHeading,
-                        TimeAlloted = (ThingListItem.AllottedTime)e.TimeAllotted, // no idea if this is the right "fix" or not. 
+                        TimeAlloted = e.TimeAllotted,
                         CreatedUtc = e.CreatedUtc
                     }
                     );
@@ -49,8 +48,7 @@ namespace DoWhat.Services
                     {
                         ThingId = entity.ThingId,
                         Heading = entity.Heading,
-                        SubHeading = entity.SubHeading,
-                        TimeAllotted = (Models.AllottedTime)entity.TimeAllotted,
+                        TimeAllotted = entity.TimeAllotted,
                         IsCompleted = entity.IsCompleted,
                         CreatedUtc = entity.CreatedUtc
                     };
@@ -64,8 +62,7 @@ namespace DoWhat.Services
             {
                 OwnerId = _userId,
                 Heading = model.Heading,
-                SubHeading = model.SubHeading,
-                TimeAllotted = (Data.AllottedTime)model.TimeAllotted,
+                TimeAllotted = model.TimeAllotted,
                 CreatedUtc = DateTime.UtcNow
             };
 
@@ -85,8 +82,7 @@ namespace DoWhat.Services
                     .Things
                     .Single(e => e.ThingId == model.ThingId && e.OwnerId == _userId);
                 entity.Heading = model.Heading;
-                entity.SubHeading = model.SubHeading;
-                entity.TimeAllotted = (Data.AllottedTime)model.TimeAllotted;
+                entity.TimeAllotted = model.TimeAllotted;
                 entity.IsCompleted = model.IsCompleted;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 

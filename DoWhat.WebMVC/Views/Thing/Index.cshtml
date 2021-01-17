@@ -23,20 +23,16 @@
 <table class="table">
     <tr>
         <th>
-            @* will replace this with catagory in time *@
-            @Html.DisplayNameFor(model => model.ThingId)
+            @Html.DisplayNameFor(model => model.CatagoryId)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Heading)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SubHeading)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.TimeAlloted)
         </th>
         <th>
-            @* The index view will onnly show !completed things make another view with ALL things completed +!completed *@
+            @* The index view should only show !completed things make another view with ALL things completed +!completed *@
             @Html.DisplayNameFor(model => model.IsCompleted)
         </th>
         <th>
@@ -55,7 +51,7 @@
                 @Html.DisplayFor(modelItem => item.Heading)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SubHeading)
+                @Html.DisplayFor(modelItem => item.CatagoryId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TimeAlloted)
@@ -76,29 +72,3 @@
 
 </table>
 
-@section scripts {
-    <script language="javascript" type="text/javascript">
-     $(document).ready(function () {
-         $("i[data-toggle='check']")
-             .css({ "cursor": "pointer" })
-             .click(function (e) {
-                 var target = $(e.target);
-                 var thingId = target.attr("data-id");
-                 var checkSet = target.hasClass("glyphicon-check");
-
-                 $.ajax({
-                     method: checkSet ? "DELETE" : "PUT",
-                     url: "/api/Thing/" + thingId + "/check",
-                     data: null
-                 })
-                 .done(function (r) {
-                     target.removeClass();
-                     target.addClass("glyphicon " + (checkSet ? "glyphicon-unchecked" : "glyphicon-check"));
-                 })
-                 .fail(function (r) {
-                     alert("Failed to change check status");
-                 });
-             });
-     });
-    </script>
-}

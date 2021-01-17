@@ -60,7 +60,6 @@ namespace DoWhat.WebMVC.Controllers
                 {
                     ThingId = detail.ThingId,
                     Heading = detail.Heading,
-                    SubHeading = detail.SubHeading
                 };
             return View(model);
         }

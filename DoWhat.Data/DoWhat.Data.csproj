@@ -77,6 +77,10 @@
     <Compile Include="Migrations\202101142301466_InitialCreate1.Designer.cs">
       <DependentUpon>202101142301466_InitialCreate1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101170252528_fkeynull.cs" />
+    <Compile Include="Migrations\202101170252528_fkeynull.Designer.cs">
+      <DependentUpon>202101170252528_fkeynull.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource.cs" />
@@ -92,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101142301466_InitialCreate1.resx">
       <DependentUpon>202101142301466_InitialCreate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101170252528_fkeynull.resx">
+      <DependentUpon>202101170252528_fkeynull.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

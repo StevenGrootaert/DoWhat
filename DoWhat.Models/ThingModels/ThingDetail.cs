@@ -13,10 +13,14 @@ namespace DoWhat.Models
 
         public string Heading { get; set; }
 
-        public string SubHeading { get; set; }
-
-        public AllottedTime TimeAllotted { get; set; }
+        public int TimeAllotted { get; set; }
         public bool IsCompleted { get; set; }
+
+        [Display(Name = "Category Name")]       // selected from a dropdown of seeded default catagories?
+        public int CatagoryId { get; set; }
+
+        [Display(Name = "Additional Notes")]    // maybe just call this resources?
+        public int ResourceId { get; set; }
 
         [Display(Name = "Added")]
         public DateTimeOffset CreatedUtc { get; set; }

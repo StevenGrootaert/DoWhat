@@ -13,28 +13,19 @@ namespace DoWhat.Models
 
         public string Heading { get; set; }
 
-        public string SubHeading { get; set; }
+        public int TimeAlloted { get; set; }
 
-        public AllottedTime TimeAlloted { get; set; }
+        [Display(Name = "Category Name")]       // selected from a dropdown of seeded default catagories?
+        public int CatagoryId { get; set; }
 
-        [UIHint("Checked")]
-        [Display(Name = "Completed")]
+        [Display(Name = "Additional Notes")]    // maybe just call this resources?
+        public int ResourceId { get; set; }
+
+        [Display(Name = "Completed")]           // make this a real chackbox not a glyph thing. 
         public bool IsCompleted { get; set; }
 
         [Display(Name = "Added")]
         public DateTimeOffset CreatedUtc { get; set; }
 
-        public enum AllottedTime    // is there a better way to put this as a numeric value? 
-        {
-            FiveMin = 5,
-            FiveteenMin = 15,
-            ThirtyMin = 30,
-            FortyFiveMin = 45,
-            OneHour = 60,
-            HourAndHalf = 90,
-            TwoHours = 120,
-            ThreeHours = 180,
-            FourHours = 240,
-        }
     }
 }

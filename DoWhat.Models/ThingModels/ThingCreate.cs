@@ -11,26 +11,16 @@ namespace DoWhat.Models
     {
         [Required]
         [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
-        [MaxLength(100, ErrorMessage = "Heading can not be more than 100 charaters")]
+        [MaxLength(75, ErrorMessage = "Heading can not be more than 75 charaters")]
         public string Heading { get; set; }
 
-        [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
-        [MaxLength(300, ErrorMessage = "Subheading can not be more than 300 charaters")]
-        public string SubHeading { get; set; }
+        [Required]
+        public int TimeAllotted { get; set; }   // selected from a dropdown in a viewbag
 
-        public AllottedTime TimeAllotted { get; set; }
-    }
+        [Display(Name = "Category Name")]       // selected from a dropdown of seeded default catagories?
+        public int CatagoryId { get; set; }
 
-    public enum AllottedTime    // is there a better way to put this as a numeric value? 
-    {
-        FiveMin = 5,
-        FiveteenMin = 15,
-        ThirtyMin = 30,
-        FortyFiveMin = 45,
-        OneHour = 60,
-        HourAndHalf = 90,
-        TwoHours = 120,
-        ThreeHours = 180,
-        FourHours = 240,
+        [Display(Name = "Additional Notes")]    // maybe just call this resources?
+        public int ResourceId { get; set; }
     }
 }

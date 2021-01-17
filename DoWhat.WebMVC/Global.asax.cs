@@ -1,4 +1,3 @@
-using DoWhat.WebMVC.App_Start;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,8 +14,6 @@ namespace DoWhat.WebMVC
         {
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            //for the toggle button
-            WebApiConfig.Register();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }

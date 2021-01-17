@@ -176,12 +176,10 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ThingController.cs" />
-    <Compile Include="Controllers\WebAPI\ThingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -252,7 +250,6 @@
     <Content Include="Views\Thing\Delete.cshtml" />
     <Content Include="Views\Thing\Edit.cshtml" />
     <Content Include="Views\Thing\Details.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\Checked.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

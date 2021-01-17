@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,28 +13,16 @@ namespace DoWhat.Models
 
         public string Heading { get; set; }
 
-        public string SubHeading { get; set; }
-
-        // will need to add public int CategoryId { get; set;}
-
-        public AllottedTime TimeAllotted { get; set; }
+        public int TimeAllotted { get; set; }
 
         public bool IsCompleted { get; set; }
 
+        [Display(Name = "Category Name")]       // selected from a dropdown of seeded default catagories?
+        public int CatagoryId { get; set; }
+
+        [Display(Name = "Additional Notes")]    // maybe just call this resources?
+        public int ResourceId { get; set; }
+
         // why do i not need a ModifiedUtc here?
     }
-}
-
-// If I update this time table I have to do it in sooooo many places?? 
-public enum AllottedTime    // is there a better way to put this as a numeric value? 
-{
-    FiveMin = 5,
-    FiveteenMin = 15,
-    ThirtyMin = 30,
-    FortyFiveMin = 45,
-    OneHour = 60,
-    HourAndHalf = 90,
-    TwoHours = 120,
-    ThreeHours = 180,
-    FourHours = 240,
 }
