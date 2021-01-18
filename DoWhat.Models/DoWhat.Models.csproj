@@ -71,6 +71,10 @@
     <Compile Include="CatagoryModels\CatagoryEdit.cs" />
     <Compile Include="CatagoryModels\CatagoryListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceModels\ResourceCreate.cs" />
+    <Compile Include="ResourceModels\ResourceDetail.cs" />
+    <Compile Include="ResourceModels\ResourceEdit.cs" />
+    <Compile Include="ResourceModels\ResourceListItem.cs" />
     <Compile Include="ThingModels\ThingCreate.cs" />
     <Compile Include="ThingModels\ThingDetail.cs" />
     <Compile Include="ThingModels\ThingEdit.cs" />
@@ -81,7 +85,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ResourceModels\" />
+    <ProjectReference Include="..\DoWhat.Data\DoWhat.Data.csproj">
+      <Project>{6E68ADA6-6E22-4CD3-AD40-6ECEA790C008}</Project>
+      <Name>DoWhat.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

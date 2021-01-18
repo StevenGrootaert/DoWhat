@@ -18,10 +18,10 @@ namespace DoWhat.Models
         [Display(Name = "Category Name")]       // selected from a dropdown of seeded default catagories?
         public int CatagoryId { get; set; }
 
-        [Display(Name = "Additional Notes")]    // maybe just call this resources?
+        [Display(Name = "Resources")]    // think I might leave this out here -- don't need it in the list view for the Things but in the details
         public int ResourceId { get; set; }
 
-        [Display(Name = "Completed")]           // make this a real chackbox not a glyph thing. 
+        [Display(Name = "Completed")]           // make this a real checkbox - However the general view will should ONLY show incompleted Things an ALL things view will show both completed and in completed. or ony completed. 
         public bool IsCompleted { get; set; }
 
         [Display(Name = "Added")]
