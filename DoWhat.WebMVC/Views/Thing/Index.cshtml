@@ -54,15 +54,14 @@
                 @Html.DisplayFor(modelItem => item.TimeAlloted)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IsCompleted)
+                @Html.DisplayFor(modelItem => item.IsCompleted) @* where IsCompleted = false *@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CreatedUtc)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id=item.ThingId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.ThingId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ThingId })
+                @Html.ActionLink("Details", "Details", new { id=item.ThingId })
             </td>
         </tr>
     }

@@ -23,7 +23,7 @@ namespace DoWhat.Data
         [Required]
         public int TimeAllotted { get; set; }
 
-        //[ForeignKey("Catagory")]
+        [ForeignKey(nameof(Catagory))]
         public int CatagoryId { get; set; } 
         public virtual Catagory Catagory { get; set; }
 

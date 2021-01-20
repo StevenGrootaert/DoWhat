@@ -55,6 +55,10 @@ namespace DoWhat.Services
             }
         }
 
+        // get Resources by thing Id
+
+        // Assign a thing by join and querry syntax. I want a Thing that is of allotted time and of catagory.. 
+
         // CreateThing
         public bool CreateThing(ThingCreate model)
         {
@@ -63,6 +67,8 @@ namespace DoWhat.Services
                 OwnerId = _userId,
                 Heading = model.Heading,
                 TimeAllotted = model.TimeAllotted,
+                CatagoryId = model.CatagoryId,
+                //Catagory = model.Catagories,
                 CreatedUtc = DateTime.UtcNow
             };
 

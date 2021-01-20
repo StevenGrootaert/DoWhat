@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace DoWhat.Models
 {
@@ -20,7 +21,10 @@ namespace DoWhat.Models
         [Display(Name = "Category Name")]       // selected from a dropdown of seeded default catagories?
         public int CatagoryId { get; set; }
 
-        [Display(Name = "Additional Notes")]    // maybe just call this resources?
-        public int ResourceId { get; set; }
+        //[Display(Name = "Resources")]    // I don't need this when making a thing - resources get added later and then attched to things when you make a resource
+        //public int ResourceId { get; set; }
+
+        // for the drop down lists
+        public IEnumerable<SelectListItem> Catagories { get; set; }
     }
 }

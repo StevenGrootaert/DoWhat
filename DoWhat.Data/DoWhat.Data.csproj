@@ -85,6 +85,10 @@
     <Compile Include="Migrations\202101172223570_updating-inprogress-catagory.Designer.cs">
       <DependentUpon>202101172223570_updating-inprogress-catagory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101192331203_updated resource and thing.cs" />
+    <Compile Include="Migrations\202101192331203_updated resource and thing.Designer.cs">
+      <DependentUpon>202101192331203_updated resource and thing.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource.cs" />
@@ -106,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101172223570_updating-inprogress-catagory.resx">
       <DependentUpon>202101172223570_updating-inprogress-catagory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101192331203_updated resource and thing.resx">
+      <DependentUpon>202101192331203_updated resource and thing.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

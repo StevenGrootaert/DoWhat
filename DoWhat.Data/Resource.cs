@@ -18,7 +18,7 @@ namespace DoWhat.Data
                                             // selected from a dropdown on the resource 'create' page would be awesome. - but can't create a Thing w/out resource of this was an Fkey in the Thing
                                             // What if there was a way to make a blank one that the user edits (not creates) -- wait how do we have more than one? 
                                             // maybe this (mulitiple "resource" doesn't get tied back into Thing but is pulled into it when you click to see the 'details' of the Thing !
-        //[ForeignKey("Thing")]
+        [ForeignKey(nameof(Thing))]
         public int ThingId { get; set; }
         public virtual Thing Thing { get; set; }
 

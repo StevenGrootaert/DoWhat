@@ -61,6 +61,7 @@ namespace DoWhat.Services
             {       // how to I add the ThingId when creating a Resource? (or select from a list of things?) almost crazt to do it that way 
                 // is there a way to create this within the details of a thing?
                 OwnerId = _userId,
+                ThingId = model.ThingId, // this isnt working too well. 
                 Title = model.Title,
                 Content = model.Content,
                 CreatedUtc = DateTime.UtcNow

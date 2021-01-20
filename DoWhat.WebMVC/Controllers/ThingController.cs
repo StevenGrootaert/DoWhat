@@ -1,4 +1,5 @@
-﻿using DoWhat.Models;
+﻿using DoWhat.Data;
+using DoWhat.Models;
 using DoWhat.Services;
 using Microsoft.AspNet.Identity;
 using System;
@@ -23,6 +24,9 @@ namespace DoWhat.WebMVC.Controllers
         // GET: Thing/Create
         public ActionResult Create()
         {
+            // ** added for the drop down to work. 
+            var ctx = new ApplicationDbContext();
+            ViewBag.Catagories = ctx.Catagories.ToList();
             return View();
         }
 
@@ -31,6 +35,8 @@ namespace DoWhat.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ThingCreate model)
         {
+
+
             if (!ModelState.IsValid) return View(model);
             var service = CreateThingService();
 
