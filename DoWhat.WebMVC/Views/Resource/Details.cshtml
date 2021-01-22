@@ -11,11 +11,15 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Thing)
+            @Html.HiddenFor(model => model.ResourceId)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Thing.Heading)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Thing)
+            @Html.DisplayFor(model => model.Thing.Heading)
         </dd>
 
         <dt>

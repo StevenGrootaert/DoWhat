@@ -27,8 +27,11 @@ namespace DoWhat.Services
                     .Select(e => new ResourceListItem
                     {
                         ResourceId = e.ResourceId,
+                        ThingId = e.ThingId,
+                        Thing = e.Thing,
                         Title = e.Title,
-                        Content = e.Content,
+                        //Content = e.Content,
+                        CreatedUtc = e.CreatedUtc
                     }
                     );
                 return query.ToArray();
@@ -46,6 +49,8 @@ namespace DoWhat.Services
                     new ResourceDetail
                     {
                         ResourceId = entity.ResourceId,
+                        ThingId = entity.ThingId,
+                        Thing = entity.Thing,
                         Title = entity.Title,
                         Content = entity.Content,
                         CreatedUtc = entity.CreatedUtc
@@ -61,7 +66,7 @@ namespace DoWhat.Services
             {       // how to I add the ThingId when creating a Resource? (or select from a list of things?) almost crazt to do it that way 
                 // is there a way to create this within the details of a thing?
                 OwnerId = _userId,
-                ThingId = model.ThingId, // this isnt working too well. 
+                ThingId = model.ThingId,
                 Title = model.Title,
                 Content = model.Content,
                 CreatedUtc = DateTime.UtcNow
@@ -82,6 +87,7 @@ namespace DoWhat.Services
                 var entity = ctx
                     .Resources
                     .Single(e => e.ResourceId == model.ResourceId && e.OwnerId == _userId);
+                entity.ThingId = model.ThingId;
                 entity.Title = model.Title;
                 entity.Content = model.Content;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;

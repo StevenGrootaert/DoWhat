@@ -11,6 +11,7 @@ namespace DoWhat.Models
     public class ThingCreate
     {
         [Required]
+        [Display(Name = "Thing Heading")]
         [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
         [MaxLength(75, ErrorMessage = "Heading can not be more than 75 charaters")]
         public string Heading { get; set; }
@@ -27,6 +28,6 @@ namespace DoWhat.Models
 
         // for the drop down lists
         public IEnumerable<SelectListItem> Catagories { get; set; }
-        // public IEnumerable<SlectListItem> Time { get; set; } - this would have to come from a DbSet of time - I just want a list? 
+        //public IEnumerable<SlectListItem> TimeInMin { get; set; } //- this would have to come from a DbSet of time - I just want a list? 
     }
 }

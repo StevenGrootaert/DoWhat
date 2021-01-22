@@ -17,7 +17,8 @@ namespace DoWhat.WebMVC.Controllers
         {
             var service = CreateResourceService();
             var model = service.GetResources();
-            return View(model.OrderByDescending(created => created.CreatedUtc));
+            //return View(model.OrderByDescending(created => created.CreatedUtc));
+            return View(model.OrderBy(heading => heading.Thing.Heading));
         }
 
         // GET: Resource/Create
@@ -114,6 +115,7 @@ namespace DoWhat.WebMVC.Controllers
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new ResourceService(userId);
+            // pout a view bag. things in here?? 
             return service;
         }
     }

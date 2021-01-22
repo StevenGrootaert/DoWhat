@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ namespace DoWhat.Models.ResourceModels
     {
         public int ResourceId { get; set; }
 
+        [ForeignKey("Thing")] // added but I don't knwo if I actually need it
         [Display(Name = "Thing")]
         public int ThingId { get; set; }
         public virtual Thing Thing { get; set; }

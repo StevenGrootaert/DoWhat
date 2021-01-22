@@ -18,6 +18,7 @@ namespace DoWhat.Data
         public Guid OwnerId { get; set; }
 
         [Required]
+        [Display(Name = "Thing Heading")]
         public string Heading { get; set; }
 
         [Required]

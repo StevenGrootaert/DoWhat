@@ -27,6 +27,15 @@ namespace DoWhat.WebMVC.Controllers
             // ** added for the drop down to work. 
             var ctx = new ApplicationDbContext();
             ViewBag.Catagories = ctx.Catagories.ToList();
+
+            //var timeInMin = GetTimeInt();
+            //private IEnumerable<int> GetTimeInt()
+            //{
+            //    5;
+            //    15;
+
+            //}
+
             return View();
         }
 

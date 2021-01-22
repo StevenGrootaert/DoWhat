@@ -10,7 +10,7 @@ namespace DoWhat.Models
     public class ThingListItem
     {
         public int ThingId { get; set; }
-
+        [Display(Name = "Thing Heading")]
         public string Heading { get; set; }
 
         public int TimeAlloted { get; set; }

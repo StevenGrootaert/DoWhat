@@ -1,6 +1,8 @@
-﻿using System;
+﻿using DoWhat.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,8 +23,13 @@ namespace DoWhat.Models.ResourceModels
         [Display(Name = "Added")]
         public DateTimeOffset CreatedUtc { get; set; }
 
+        [ForeignKey("Thing")]
+        [Display(Name = "Thing Id")]
         public int ThingId { get; set; }
-        public virtual Data.Thing Thing { get; set; }
+        public virtual Thing Thing { get; set; }
+
+
+
 
         //public IEnumerable<SelectListItem> Things { get; set; } //to get the thing Heading to show up in the Resource Index view
     }

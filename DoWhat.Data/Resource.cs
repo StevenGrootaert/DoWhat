@@ -22,6 +22,7 @@ namespace DoWhat.Data
         public int ThingId { get; set; }
         public virtual Thing Thing { get; set; }
 
+
         [Display(Name ="Content Title")]    // Website that will help me, or list of supplies
         public string Title { get; set; }
 

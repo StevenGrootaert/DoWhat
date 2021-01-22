@@ -2,9 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace DoWhat.Models.ResourceModels
 {
@@ -12,6 +14,8 @@ namespace DoWhat.Models.ResourceModels
     {
         public int ResourceId { get; set; }
 
+        [ForeignKey("Thing")]
+        [Display(Name = "Thing Id")]
         public int ThingId { get; set; }
         public virtual Thing Thing { get; set; }
 
@@ -22,5 +26,6 @@ namespace DoWhat.Models.ResourceModels
         [MaxLength(1000, ErrorMessage = "Content can not be more than 1000 charaters")]
         public string Content { get; set; }
 
+        public IEnumerable<SelectListItem> Things { get; set; }
     }
 }
