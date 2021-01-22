@@ -4,18 +4,18 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Catagory Detail</h2>
 
 <div>
-    <h4>CatagoryDetail</h4>
+    @*<h4>Catagory Detail</h4>*@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.CatagoryId)
+            @Html.HiddenFor(model => model.CatagoryId)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CatagoryId)
+            @Html.HiddenFor(model => model.CatagoryId)
         </dd>
 
         <dt>
@@ -33,10 +33,17 @@
         <dd>
             @Html.DisplayFor(model => model.Description)
         </dd>
-
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CatagoryId }) |
-    @Html.ActionLink("Back to List", "Index")
+    would like to add a list if all Things that are a part of the catagory
+    foreach
+    Thing.Heading | details
+</p>
+<p>
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CatagoryId })
+</p>
+<p>
+    @Html.ActionLink("DELETE", "Delete", new { id = Model.CatagoryId })
 </p>

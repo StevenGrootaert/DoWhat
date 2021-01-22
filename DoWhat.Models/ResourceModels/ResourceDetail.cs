@@ -21,7 +21,8 @@ namespace DoWhat.Models.ResourceModels
         [Required]                          // this can contain detailed notes, instructions, list of materials, URLs to youtube or blog posts. anything really? I'd like the form to be large in the view. 
         public string Content { get; set; }
 
-        [Required]
+        //[Required]
+        [Display(Name = "Added")]
         public DateTimeOffset CreatedUtc { get; set; }
 
         public DateTimeOffset? ModifiedUtc { get; set; }

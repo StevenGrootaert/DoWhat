@@ -5,7 +5,7 @@
 <div class="jumbotron">
     <h1>Do What ( _____ )</h1>
     <p class="lead">Helping you to overcome descision fatique by doing what needs to be done with the time you have. </p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Get Started / How it works?  &raquo;</a></p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Do a Thing (Now)  &raquo;</a></p>
     @* how do I change this pages based if you are logged in or not? This index should look different (or logged in users should have a page) that's different. *@
 </div>
 @* These buttons below should be what a logged in person sees as they add Things and use the app functionally. None logged in user should just see a home page that tells them about the app and examples of how it works etc. *@
@@ -13,19 +13,22 @@
     <div class="col-md-4">
         <h2>Things to do</h2>
         <p>
-            Have to do a thing - got things you want to do.
+            We all have Things that we want (or need) to do. View your list of Things or add Things to your list.
         </p>
-        <p>@Html.ActionLink("thing index", "Index", "Thing", null, new { @class = "btn btn-default btn-large" })</p>
+        <p>@Html.ActionLink("List of Things", "Index", "Thing", null, new { @class = "btn btn-default btn-large" })  |  
+        @Html.ActionLink("Make a Thing", "Create", "Thing", null, new { @class = "btn btn-default btn-large" })</p>
         
     </div>
     <div class="col-md-4">
         <h2>Catagorize Things</h2>
-        <p>Put your things in order. Make catagories for different areas in your life that need doing.</p>
-        <p>@Html.ActionLink("catagory index", "Index", "Catagory", null, new { @class = "btn btn-default btn-large" })</p>
+        <p>Put your Things in order. Make catagories for different areas in your life to seperate the things that need doing.</p>
+        <p>@Html.ActionLink("Catagory List", "Index", "Catagory", null, new { @class = "btn btn-default btn-large" })  |  
+        @Html.ActionLink("New Catagory", "Create", "Catagory", null, new { @class = "btn btn-default btn-large" })</p>
     </div>
     <div class="col-md-4">
-        <h2>Things about Things</h2>
-        <p>Add resources and notes to the Things you want or need to do.</p>
-        <p>@Html.ActionLink("resource index", "Index", "Resource", null, new { @class = "btn btn-default btn-large" })</p>
+        <h2>Stuff about Things</h2>
+        <p>Add resources like additional notes, shopping lists or weblinks to the Things you want or need to do.</p>
+        <p>@Html.ActionLink("Resource List", "Index", "Resource", null, new { @class = "btn btn-default btn-large" })  |  
+        @Html.ActionLink("Add Resource", "Create", "Resource", null, new { @class = "btn btn-default btn-large" })</p>
     </div>
 </div>

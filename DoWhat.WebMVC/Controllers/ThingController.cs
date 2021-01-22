@@ -18,7 +18,7 @@ namespace DoWhat.WebMVC.Controllers
         {
             var service = CreateThingService();
             var model = service.GetThings();
-            return View(model);
+            return View(model.OrderBy(time => time.TimeAlloted));
         }
 
         // GET: Thing/Create
@@ -35,8 +35,6 @@ namespace DoWhat.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ThingCreate model)
         {
-
-
             if (!ModelState.IsValid) return View(model);
             var service = CreateThingService();
 

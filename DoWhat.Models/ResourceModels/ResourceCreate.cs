@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace DoWhat.Models.ResourceModels
 {
@@ -12,6 +13,7 @@ namespace DoWhat.Models.ResourceModels
     {
         public int ResourceId { get; set; }
 
+        [Display(Name = "Thing")]
         public int ThingId { get; set; }
         public virtual Thing Thing { get; set; }
 
@@ -22,5 +24,8 @@ namespace DoWhat.Models.ResourceModels
         [Required]
         [MaxLength(1000, ErrorMessage = "Content can not be more than 1000 charaters")]
         public string Content { get; set; }
+
+        // for the drop down lists
+        public IEnumerable<SelectListItem> Things { get; set; }
     }
 }

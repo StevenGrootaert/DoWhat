@@ -4,10 +4,10 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Thing Detail</h2>
 
 <div>
-    <h4>ThingDetail</h4>
+    @*<h4>Thing Detail</h4>*@
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -58,14 +58,16 @@
             @Html.DisplayFor(model => model.ModifiedUtc)
         </dd>
 
-        <p>
+        @*<p>
             How do I display all the resources that belong to this thing? In a list or array
-        </p>
+        </p>*@
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ThingId }) |
-    @Html.ActionLink("DELETE", "Delete", new { id = Model.ThingId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ThingId })
+</p>
+<p>
+    @Html.ActionLink("DELETE", "Delete", new { id = Model.ThingId })
 </p>

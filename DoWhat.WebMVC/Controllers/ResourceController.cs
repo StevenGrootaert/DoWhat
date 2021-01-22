@@ -1,4 +1,5 @@
-﻿using DoWhat.Models.ResourceModels;
+﻿using DoWhat.Data;
+using DoWhat.Models.ResourceModels;
 using DoWhat.Services;
 using Microsoft.AspNet.Identity;
 using System;
@@ -16,12 +17,14 @@ namespace DoWhat.WebMVC.Controllers
         {
             var service = CreateResourceService();
             var model = service.GetResources();
-            return View(model);
+            return View(model.OrderByDescending(created => created.CreatedUtc));
         }
 
         // GET: Resource/Create
         public ActionResult Create()
         {
+            var ctx = new ApplicationDbContext();
+            ViewBag.Things = ctx.Things.ToList();
             return View();
         }
 

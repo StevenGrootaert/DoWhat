@@ -16,6 +16,7 @@ namespace DoWhat.Models
         public string Heading { get; set; }
 
         [Required]
+        [Display(Name = "Time Alloted")]
         public int TimeAllotted { get; set; }   // selected from a dropdown in a viewbag
 
         [Display(Name = "Category Name")]       // selected from a dropdown of seeded default catagories?
@@ -26,5 +27,6 @@ namespace DoWhat.Models
 
         // for the drop down lists
         public IEnumerable<SelectListItem> Catagories { get; set; }
+        // public IEnumerable<SlectListItem> Time { get; set; } - this would have to come from a DbSet of time - I just want a list? 
     }
 }

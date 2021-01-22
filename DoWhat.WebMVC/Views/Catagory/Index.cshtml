@@ -4,10 +4,11 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Catagory List</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("New Catagory", "Create", "Catagory", null, new { @class = "btn btn-primary btn-large" })
+    @*@Html.ActionLink("Create New", "Create", new { @class = "btn btn-default btn-large" })*@
 </p>
 
 @if (TempData.ContainsKey("SaveResult"))
@@ -24,9 +25,6 @@
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.CatagoryId)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
@@ -39,9 +37,6 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CatagoryId)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
@@ -49,10 +44,13 @@
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id=item.CatagoryId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.CatagoryId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.CatagoryId })
+                    @Html.ActionLink("Details", "Details", new { id = item.CatagoryId })
                 </td>
             </tr>
         }
 
     </table>
+
+    <div>
+        @Html.ActionLink("< Back to Main Page", "Index", "Home")
+    </div>

@@ -17,7 +17,7 @@ namespace DoWhat.WebMVC.Controllers
         {
             var service = CreateCatagoryService();
             var model = service.GetCatagories();
-            return View(model);
+            return View(model.OrderBy(cat => cat.Name));
         }
 
         // GET: Catagory/Create

@@ -4,10 +4,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Resource List</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add Resource", "Create", "Resource", null, new { @class = "btn btn-primary btn-large" })
 </p>
 
 @if (TempData.ContainsKey("SaveResult"))
@@ -24,13 +24,13 @@
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ResourceId)
+                @Html.DisplayNameFor(model => model.Thing.Heading)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Title)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Content)
+                @Html.DisplayNameFor(model => model.CreatedUtc)
             </th>
             <th></th>
         </tr>
@@ -39,20 +39,23 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ResourceId)
+                    @Html.DisplayFor(modelItem => item.Thing.Heading)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Title)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Content)
+                    @Html.DisplayFor(modelItem => item.CreatedUtc)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.ResourceId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ResourceId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ResourceId })
+                    @Html.ActionLink("Details", "Details", new { id = item.ResourceId })
                 </td>
             </tr>
         }
 
     </table>
+
+    <div>
+        @Html.ActionLink("< Back to Main Page", "Index", "Home")
+    </div>
