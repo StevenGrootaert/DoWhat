@@ -1,15 +1,17 @@
-﻿using System;
+﻿using DoWhat.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DoWhat.Models
+namespace DoWhat.Models.ThingModels
 {
     public class ThingListItem
     {
         public int ThingId { get; set; }
+
         [Display(Name = "Thing Heading")]
         public string Heading { get; set; }
 
@@ -17,6 +19,7 @@ namespace DoWhat.Models
 
         [Display(Name = "Category Name")]
         public int CatagoryId { get; set; }
+        public virtual Catagory Catagory { get; set; }
 
         //[Display(Name = "Resources")]    // think I might leave this out here -- don't need it in the list view for the Things but in the details
         //public int ResourceId { get; set; }

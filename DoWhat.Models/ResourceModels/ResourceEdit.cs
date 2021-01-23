@@ -26,6 +26,9 @@ namespace DoWhat.Models.ResourceModels
         [MaxLength(1000, ErrorMessage = "Content can not be more than 1000 charaters")]
         public string Content { get; set; }
 
+        [Display(Name = "Modified")]    // this isn't updatig for some reason
+        public DateTimeOffset? ModifiedUtc { get; set; }
+
         public IEnumerable<SelectListItem> Things { get; set; }
     }
 }

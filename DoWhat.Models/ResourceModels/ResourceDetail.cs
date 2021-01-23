@@ -28,6 +28,7 @@ namespace DoWhat.Models.ResourceModels
         [Display(Name = "Added")]
         public DateTimeOffset CreatedUtc { get; set; }
 
+        [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

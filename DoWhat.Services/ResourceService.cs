@@ -27,7 +27,7 @@ namespace DoWhat.Services
                     .Select(e => new ResourceListItem
                     {
                         ResourceId = e.ResourceId,
-                        ThingId = e.ThingId,
+                        ThingId = e.ThingId, // not sure I need the ID specfically if the virtual thing is coming in
                         Thing = e.Thing,
                         Title = e.Title,
                         //Content = e.Content,
@@ -53,7 +53,8 @@ namespace DoWhat.Services
                         Thing = entity.Thing,
                         Title = entity.Title,
                         Content = entity.Content,
-                        CreatedUtc = entity.CreatedUtc
+                        CreatedUtc = entity.CreatedUtc,
+                        ModifiedUtc = entity.ModifiedUtc
                         // modifiedUtc??
                     };
             }
@@ -87,7 +88,7 @@ namespace DoWhat.Services
                 var entity = ctx
                     .Resources
                     .Single(e => e.ResourceId == model.ResourceId && e.OwnerId == _userId);
-                entity.ThingId = model.ThingId;
+                //entity.ThingId = model.ThingId; ** short term fix for ThingId conflict during the edit view. I feel like I'm going to need this when trying to update the Thing it belongs to. 
                 entity.Title = model.Title;
                 entity.Content = model.Content;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;

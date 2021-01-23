@@ -78,9 +78,7 @@ namespace DoWhat.WebMVC.Controllers
                 ModelState.AddModelError("", "Resource ID Missmatch");
                 return View(model);
             }
-
             var service = CreateResourceService();
-
             if (service.UpdateResource(model))
             {
                 TempData["SaveResult"] = " Resource was updated.";
@@ -115,7 +113,6 @@ namespace DoWhat.WebMVC.Controllers
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new ResourceService(userId);
-            // pout a view bag. things in here?? 
             return service;
         }
     }

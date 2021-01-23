@@ -1,4 +1,4 @@
-﻿@model DoWhat.Models.ThingDetail
+﻿@model DoWhat.Models.ThingModels.ThingDetail
 
 @{
     ViewBag.Title = "Details";
@@ -27,11 +27,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CatagoryId)
+            @Html.DisplayNameFor(model => model.Catagory.Name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CatagoryId)
+            @Html.DisplayFor(model => model.Catagory.Name)
         </dd>
 
         <dt>
@@ -64,6 +64,40 @@
 
     </dl>
 </div>
+
+@*<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Resource)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Resource)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedUtc)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ResourceId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ResourceId })
+            </td>
+        </tr>
+    }
+
+</table>*@
+
 <p>
     @Html.ActionLink("Back to List", "Index") |
     @Html.ActionLink("Edit", "Edit", new { id = Model.ThingId }) |

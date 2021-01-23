@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
-namespace DoWhat.Models
+namespace DoWhat.Models.ThingModels
 {
     public class ThingCreate
     {

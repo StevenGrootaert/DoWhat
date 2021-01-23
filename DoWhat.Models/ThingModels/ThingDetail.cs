@@ -1,11 +1,12 @@
-﻿using System;
+﻿using DoWhat.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DoWhat.Models
+namespace DoWhat.Models.ThingModels
 {
     public class ThingDetail
     {
@@ -18,9 +19,11 @@ namespace DoWhat.Models
 
         [Display(Name = "Category Name")]       // selected from a dropdown of seeded default catagories?
         public int CatagoryId { get; set; }
+        public virtual Catagory Catagory { get; set; }
 
         [Display(Name = "Resources")]    // this doesn't feel right !??  Is this a list of resources??
         public int ResourceId { get; set; }
+        public virtual Resource Resource { get; set; }
 
         [Display(Name = "Added")]
         public DateTimeOffset CreatedUtc { get; set; }

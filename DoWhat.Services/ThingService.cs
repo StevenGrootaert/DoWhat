@@ -1,5 +1,5 @@
 ﻿using DoWhat.Data;
-using DoWhat.Models;
+using DoWhat.Models.ThingModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,8 +27,11 @@ namespace DoWhat.Services
                     .Select(e => new ThingListItem
                     {
                         ThingId = e.ThingId,
+                        CatagoryId = e.CatagoryId,
+                        Catagory = e.Catagory,
                         Heading = e.Heading,
                         TimeAlloted = e.TimeAllotted,
+                        IsCompleted = e.IsCompleted,
                         CreatedUtc = e.CreatedUtc
                     }
                     );
@@ -36,6 +39,7 @@ namespace DoWhat.Services
             }
         }
 
+        //public IEnumerable<ThingDetail> GetThingById(int id)
         public ThingDetail GetThingById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -48,16 +52,19 @@ namespace DoWhat.Services
                     {
                         ThingId = entity.ThingId,
                         Heading = entity.Heading,
+                        Catagory = entity.Catagory,
                         TimeAllotted = entity.TimeAllotted,
                         IsCompleted = entity.IsCompleted,
-                        CreatedUtc = entity.CreatedUtc
+                        CreatedUtc = entity.CreatedUtc,
+                        ModifiedUtc = entity.ModifiedUtc, 
+                        //Resource = entity.Resource
                     };
             }
         }
 
-        // get Resources by thing Id
+        // **get Resources by thing Id involves an Iemumerable
 
-        // Assign a thing by join and querry syntax. I want a Thing that is of allotted time and of catagory.. 
+        // **Assign a thing by join and querry syntax. I want a Thing that is of allotted time and of catagory.. 
 
         // CreateThing
         public bool CreateThing(ThingCreate model)
@@ -68,7 +75,6 @@ namespace DoWhat.Services
                 Heading = model.Heading,
                 TimeAllotted = model.TimeAllotted,
                 CatagoryId = model.CatagoryId,
-                //Catagory = model.Catagories,
                 CreatedUtc = DateTime.UtcNow
             };
 

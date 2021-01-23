@@ -1,5 +1,5 @@
 ﻿using DoWhat.Data;
-using DoWhat.Models;
+using DoWhat.Models.ThingModels;
 using DoWhat.Services;
 using Microsoft.AspNet.Identity;
 using System;

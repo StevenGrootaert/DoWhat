@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DoWhat.Models.ThingListItem>
+﻿@model IEnumerable<DoWhat.Models.ThingModels.ThingListItem>
 
 @{
     ViewBag.Title = "Index";
@@ -24,7 +24,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.CatagoryId) @*Somehow this needs to be catagory Name*@
+            @Html.DisplayNameFor(model => model.Catagory.Name) @*Somehow this needs to be catagory Name*@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Heading)
@@ -46,7 +46,7 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.CatagoryId)
+                @Html.DisplayFor(modelItem => item.Catagory.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Heading)
