@@ -20,13 +20,13 @@ namespace DoWhat.Models.ResourceModels
         public virtual Thing Thing { get; set; }
 
         [MaxLength(100, ErrorMessage = "Content Title can not be more than 100 charaters")]
-        [Display(Name = "Content Title")]    // Website that will help me, or list of supplies
+        [Display(Name = "Content Title")]
         public string Title { get; set; }
 
         [MaxLength(1000, ErrorMessage = "Content can not be more than 1000 charaters")]
         public string Content { get; set; }
 
-        [Display(Name = "Modified")]    // this isn't updatig for some reason
+        [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
 
         public IEnumerable<SelectListItem> Things { get; set; }

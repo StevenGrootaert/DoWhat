@@ -17,11 +17,11 @@ namespace DoWhat.Models.ThingModels
 
         public bool IsCompleted { get; set; }
 
-        [Display(Name = "Category Name")]       // selected from a dropdown of seeded default catagories?
+        [Display(Name = "Category Name")]
         public int CatagoryId { get; set; }
 
-        [Display(Name = "Additional Notes")]    // maybe just call this resources?
-        public int ResourceId { get; set; }
+        //[Display(Name = "Additional Notes")]    // maybe just call this resources?
+        //public int ResourceId { get; set; }
 
         // why do i not need a ModifiedUtc here?
     }

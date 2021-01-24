@@ -33,7 +33,6 @@ namespace DoWhat.WebMVC.Controllers
             //{
             //    5;
             //    15;
-
             //}
 
             return View();
@@ -46,7 +45,6 @@ namespace DoWhat.WebMVC.Controllers
         {
             if (!ModelState.IsValid) return View(model);
             var service = CreateThingService();
-
             if (service.CreateThing(model))
             {
                 TempData["SaveResult"] = " You added a Thing.";
@@ -100,7 +98,7 @@ namespace DoWhat.WebMVC.Controllers
             return View(model);
         }
 
-        [ActionName("Delete")] // do other things need action names?? 
+        [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
             var svc = CreateThingService();   

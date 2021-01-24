@@ -18,16 +18,13 @@ namespace DoWhat.Models.ThingModels
 
         [Required]
         [Display(Name = "Time Alloted")]
-        public int TimeAllotted { get; set; }   // selected from a dropdown in a viewbag
+        public int TimeAllotted { get; set; }
 
-        [Display(Name = "Category Name")]       // selected from a dropdown of seeded default catagories?
+        [Display(Name = "Category Name")]
         public int CatagoryId { get; set; }
 
-        //[Display(Name = "Resources")]    // I don't need this when making a thing - resources get added later and then attched to things when you make a resource
-        //public int ResourceId { get; set; }
 
         // for the drop down lists
         public IEnumerable<SelectListItem> Catagories { get; set; }
-        //public IEnumerable<SlectListItem> TimeInMin { get; set; } //- this would have to come from a DbSet of time - I just want a list? 
     }
 }

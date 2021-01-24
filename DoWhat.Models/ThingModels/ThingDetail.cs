@@ -17,11 +17,11 @@ namespace DoWhat.Models.ThingModels
         public int TimeAllotted { get; set; }
         public bool IsCompleted { get; set; }
 
-        [Display(Name = "Category Name")]       // selected from a dropdown of seeded default catagories?
+        [Display(Name = "Category Name")]
         public int CatagoryId { get; set; }
         public virtual Catagory Catagory { get; set; }
 
-        [Display(Name = "Resources")]    // this doesn't feel right !??  Is this a list of resources??
+        [Display(Name = "Resources")]    // this doesn't feel right !??  Is this a list of resources?? I want to see the resources in detail view for the thing
         public int ResourceId { get; set; }
         public virtual Resource Resource { get; set; }
 

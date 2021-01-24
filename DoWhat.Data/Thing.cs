@@ -28,9 +28,6 @@ namespace DoWhat.Data
         public int CatagoryId { get; set; } 
         public virtual Catagory Catagory { get; set; }
 
-        //public int ResourceId { get; set; } // added to try and get a list of resources to show up in the detail view of a thing
-        //public virtual Resource Resource { get; set; }
-
         [DefaultValue(false)]
         public bool IsCompleted { get; set; }
 

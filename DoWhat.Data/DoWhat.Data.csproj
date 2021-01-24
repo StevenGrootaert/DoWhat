@@ -93,6 +93,10 @@
     <Compile Include="Migrations\202101222059324_added_ThingHeading.Designer.cs">
       <DependentUpon>202101222059324_added_ThingHeading.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101241637581_addingRequiredToCategoryThingcs.cs" />
+    <Compile Include="Migrations\202101241637581_addingRequiredToCategoryThingcs.Designer.cs">
+      <DependentUpon>202101241637581_addingRequiredToCategoryThingcs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource.cs" />
@@ -120,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101222059324_added_ThingHeading.resx">
       <DependentUpon>202101222059324_added_ThingHeading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101241637581_addingRequiredToCategoryThingcs.resx">
+      <DependentUpon>202101241637581_addingRequiredToCategoryThingcs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

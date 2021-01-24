@@ -88,7 +88,7 @@ namespace DoWhat.WebMVC.Controllers
             return View(model);
         }
 
-        [ActionName("Delete")] // do other things need action names?? 
+        [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
             var svc = CreateCatagoryService();

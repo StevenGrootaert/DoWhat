@@ -30,7 +30,6 @@ namespace DoWhat.Services
                         ThingId = e.ThingId, // not sure I need the ID specfically if the virtual thing is coming in
                         Thing = e.Thing,
                         Title = e.Title,
-                        //Content = e.Content,
                         CreatedUtc = e.CreatedUtc
                     }
                     );
@@ -55,7 +54,6 @@ namespace DoWhat.Services
                         Content = entity.Content,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
-                        // modifiedUtc??
                     };
             }
         }
@@ -64,7 +62,7 @@ namespace DoWhat.Services
         public bool CreateResource(ResourceCreate model)
         {
             var entity = new Resource()
-            {       // how to I add the ThingId when creating a Resource? (or select from a list of things?) almost crazt to do it that way 
+            {
                 // is there a way to create this within the details of a thing?
                 OwnerId = _userId,
                 ThingId = model.ThingId,

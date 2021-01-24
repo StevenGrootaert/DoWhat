@@ -14,10 +14,10 @@ namespace DoWhat.Models.ResourceModels
     {
         public int ResourceId { get; set; }
 
-        [Display(Name = "Content Title")]    // Website that will help me, or list of supplies
+        [Display(Name = "Content Title")]
         public string Title { get; set; }
 
-        [Required]                          // this can contain detailed notes, instructions, list of materials, URLs to youtube or blog posts. anything really? I'd like the form to be large in the view. 
+        [Required]
         public string Content { get; set; }
 
         [Display(Name = "Added")]
@@ -28,9 +28,5 @@ namespace DoWhat.Models.ResourceModels
         public int ThingId { get; set; }
         public virtual Thing Thing { get; set; }
 
-
-
-
-        //public IEnumerable<SelectListItem> Things { get; set; } //to get the thing Heading to show up in the Resource Index view
     }
 }

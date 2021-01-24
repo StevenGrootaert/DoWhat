@@ -28,7 +28,7 @@ namespace DoWhat.Services
                     {
                         ThingId = e.ThingId,
                         CatagoryId = e.CatagoryId,
-                        Catagory = e.Catagory,
+                        Catagory = e.Catagory, // If I comment this out I can see Things that don't belong to catagories when that category gets deleted
                         Heading = e.Heading,
                         TimeAlloted = e.TimeAllotted,
                         IsCompleted = e.IsCompleted,
@@ -57,7 +57,7 @@ namespace DoWhat.Services
                         IsCompleted = entity.IsCompleted,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc, 
-                        //Resource = entity.Resource
+                        //Resource = entity.Resource -- I want to see the resources as a list in the view but I'm not sure how to do that
                     };
             }
         }
@@ -75,7 +75,7 @@ namespace DoWhat.Services
                 Heading = model.Heading,
                 TimeAllotted = model.TimeAllotted,
                 CatagoryId = model.CatagoryId,
-                CreatedUtc = DateTime.UtcNow
+                CreatedUtc = DateTime.UtcNow,
             };
 
             using (var ctx = new ApplicationDbContext())
@@ -96,6 +96,7 @@ namespace DoWhat.Services
                 entity.Heading = model.Heading;
                 entity.TimeAllotted = model.TimeAllotted;
                 entity.IsCompleted = model.IsCompleted;
+                //entity.CatagoryId = model.CatagoryId; // when i edit it wipes the catagory value/ now it just deletes the thing What the FUCK I'm so over this shit
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;

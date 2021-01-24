@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,6 @@ namespace DoWhat.Models.ThingModels
         [Display(Name = "Category Name")]
         public int CatagoryId { get; set; }
         public virtual Catagory Catagory { get; set; }
-
-        //[Display(Name = "Resources")]    // think I might leave this out here -- don't need it in the list view for the Things but in the details
-        //public int ResourceId { get; set; }
 
         [Display(Name = "Completed")]           // make this a real checkbox - However the general view will should ONLY show incompleted Things an ALL things view will show both completed and in completed. or ony completed. 
         public bool IsCompleted { get; set; }
