@@ -24,7 +24,7 @@ namespace DoWhat.Models.ThingModels
         public int CatagoryId { get; set; }
 
 
-        // for the drop down lists
+        // for the drop down list
         public IEnumerable<SelectListItem> Catagories { get; set; }
     }
 }

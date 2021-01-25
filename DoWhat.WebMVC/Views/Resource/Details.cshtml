@@ -14,6 +14,7 @@
             @Html.HiddenFor(model => model.ResourceId)
         </dt>
 
+
         <dt>
             @Html.DisplayNameFor(model => model.Thing.Heading)
         </dt>
@@ -31,14 +32,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Content)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Content)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.CreatedUtc)
         </dt>
 
@@ -52,6 +45,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.ModifiedUtc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content)
         </dd>
 
     </dl>

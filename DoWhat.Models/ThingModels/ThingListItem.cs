@@ -23,7 +23,7 @@ namespace DoWhat.Models.ThingModels
         public int CatagoryId { get; set; }
         public virtual Catagory Catagory { get; set; }
 
-        [Display(Name = "Completed")]           // make this a real checkbox - However the general view will should ONLY show incompleted Things an ALL things view will show both completed and in completed. or ony completed. 
+        [Display(Name = "Completed")]
         public bool IsCompleted { get; set; }
 
         [Display(Name = "Added")]

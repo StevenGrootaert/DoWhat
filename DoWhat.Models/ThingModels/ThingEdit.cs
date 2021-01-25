@@ -24,9 +24,6 @@ namespace DoWhat.Models.ThingModels
 
         [Display(Name = "Category Name")]
         public int CatagoryId { get; set; }
-        public virtual Catagory Catagory { get; set; } // added to try to fix
 
-
-        public IEnumerable<SelectListItem> Catagories { get; set; } //added to try and get category drop down to work
     }
 }

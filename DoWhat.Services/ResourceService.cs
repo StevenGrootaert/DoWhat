@@ -86,9 +86,10 @@ namespace DoWhat.Services
                 var entity = ctx
                     .Resources
                     .Single(e => e.ResourceId == model.ResourceId && e.OwnerId == _userId);
-                //entity.ThingId = model.ThingId; ** short term fix for ThingId conflict during the edit view. I feel like I'm going to need this when trying to update the Thing it belongs to. 
                 entity.Title = model.Title;
                 entity.Content = model.Content;
+                entity.ThingId = model.ThingId; //
+                //entity.ThingId = model.ThingId; ** short term fix for ThingId conflict during the edit view. I feel like I'm going to need this when trying to update the Thing it belongs to. 
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;

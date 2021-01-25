@@ -58,12 +58,15 @@ namespace DoWhat.WebMVC.Controllers
         {
             var service = CreateResourceService();
             var detail = service.GetResourceById(id);
+            var ctx = new ApplicationDbContext();
+            ViewBag.Things = ctx.Things.ToList();  // added for dropdown thing edit
             var model =
                 new ResourceEdit
                 {
                     ResourceId = detail.ResourceId,
                     Title = detail.Title,
-                    Content = detail.Content
+                    Content = detail.Content,
+                    ThingId = detail.ThingId // added for thing dropdown edit
                 };
             return View(model);
         }

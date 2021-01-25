@@ -11,7 +11,7 @@ namespace DoWhat.Models.ThingModels
 {
     public class ThingDetail
     {
-        public int ThingId { get; set; } // will need this in order to pass this Id to other functions etc. . 
+        public int ThingId { get; set; }
 
         [Display(Name = "Thing Heading")]
         public string Heading { get; set; }
@@ -22,7 +22,6 @@ namespace DoWhat.Models.ThingModels
         [Display(Name = "Completed")]
         public bool IsCompleted { get; set; }
 
-        [ForeignKey(nameof(Catagory))] // added to fix edit drop down?
         [Display(Name = "Category Name")]
         public int CatagoryId { get; set; }
         public virtual Catagory Catagory { get; set; }

@@ -24,11 +24,8 @@ namespace DoWhat.WebMVC.Controllers
         // GET: Thing/Create
         public ActionResult Create()
         {
-            // ** added for the drop down to work. 
             var ctx = new ApplicationDbContext();
             ViewBag.Catagories = ctx.Catagories.ToList(); //** dropdown for catagory 
-            //var catagories = new SelectList(ctx.Catagories.ToList(), "CatagoryId", "Name");
-            //ViewBag.Catagories = catagories;
 
             return View();
         }
@@ -61,14 +58,14 @@ namespace DoWhat.WebMVC.Controllers
         {
             var service = CreateThingService();
             var detail = service.GetThingById(id);
-            var ctx = new ApplicationDbContext();   // **added to try and get edit cat drop down to work
+            var ctx = new ApplicationDbContext();   // **added to get edit cat drop down to work
             ViewBag.Catagories = ctx.Catagories.ToList(); //** dropdown for catagory 
             var model =
                 new ThingEdit
                 {
                     ThingId = detail.ThingId,
                     Heading = detail.Heading,
-                    CatagoryId = detail.CatagoryId, // adding this and below to try and fix catagory update
+                    CatagoryId = detail.CatagoryId,
                     TimeAllotted = detail.TimeAllotted
                 };
             return View(model);
@@ -84,9 +81,7 @@ namespace DoWhat.WebMVC.Controllers
                 ModelState.AddModelError("", "Thing ID Missmatch");
                 return View(model);
             }
-
             var service = CreateThingService();
-
             if (service.UpdateThing(model))
             {
                 TempData["SaveResult"] = " Thing was updated.";

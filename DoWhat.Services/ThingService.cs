@@ -97,8 +97,7 @@ namespace DoWhat.Services
                 entity.Heading = model.Heading;
                 entity.TimeAllotted = model.TimeAllotted;
                 entity.IsCompleted = model.IsCompleted;
-                entity.CatagoryId = model.CatagoryId; // **when i edit it wipes the catagory value/ now it just deletes the thing What the FUCK I'm so over this shit
-                //entity.Catagory.Name = model.Catagory.Name
+                entity.CatagoryId = model.CatagoryId;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
