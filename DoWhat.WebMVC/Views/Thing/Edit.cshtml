@@ -16,7 +16,7 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ThingId)
-        @Html.HiddenFor(model => model.CatagoryId)
+        @*@Html.HiddenFor(model => model.CatagoryId)*@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Heading, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -26,15 +26,7 @@
             </div>
         </div>
 
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.TimeAllotted, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TimeAllotted, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TimeAllotted, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
-                <div class="form-group">
+        <div class="form-group">
             @Html.LabelFor(model => model.TimeAllotted, htmlAttributes: new { @class = "control-label col-md-2"})
             <div class="col-md-10">
                 @Html.DropDownList("TimeAllotted", new List<SelectListItem> 
@@ -45,13 +37,21 @@
                     new SelectListItem{ Text="30 min", Value = "30"},
                     new SelectListItem{ Text="45 min", Value = "45"},
                     new SelectListItem{ Text="1 hour", Value = "60"},
-                    new SelectListItem{ Text="1 and a 1/2 hours", Value = "90"},
+                    new SelectListItem{ Text="1 - 1/2 hours", Value = "90"},
                     new SelectListItem{ Text="2 hours", Value = "120"},
                     new SelectListItem{ Text="3 hours", Value = "180"},
                 })
             </div>
         </div>
 
+        @* Added to get drop down edit for category *@
+        <div class="form-group"> 
+            @Html.LabelFor(model => model.CatagoryId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.CatagoryId, new SelectList(ViewBag.Catagories, "CatagoryId", "Name"), new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CatagoryId, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.IsCompleted, htmlAttributes: new { @class = "control-label col-md-2" })

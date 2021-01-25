@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,11 +13,16 @@ namespace DoWhat.Models.ThingModels
     {
         public int ThingId { get; set; } // will need this in order to pass this Id to other functions etc. . 
 
+        [Display(Name = "Thing Heading")]
         public string Heading { get; set; }
 
+        [Display(Name = "Time Alloted in Min")]
         public int TimeAllotted { get; set; }
+
+        [Display(Name = "Completed")]
         public bool IsCompleted { get; set; }
 
+        [ForeignKey(nameof(Catagory))] // added to fix edit drop down?
         [Display(Name = "Category Name")]
         public int CatagoryId { get; set; }
         public virtual Catagory Catagory { get; set; }
@@ -30,6 +36,8 @@ namespace DoWhat.Models.ThingModels
 
         [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
+
+
     }
 
 }

@@ -97,6 +97,10 @@
     <Compile Include="Migrations\202101241637581_addingRequiredToCategoryThingcs.Designer.cs">
       <DependentUpon>202101241637581_addingRequiredToCategoryThingcs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101251913332_aotherFixTroubleShoot.cs" />
+    <Compile Include="Migrations\202101251913332_aotherFixTroubleShoot.Designer.cs">
+      <DependentUpon>202101251913332_aotherFixTroubleShoot.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource.cs" />
@@ -127,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101241637581_addingRequiredToCategoryThingcs.resx">
       <DependentUpon>202101241637581_addingRequiredToCategoryThingcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101251913332_aotherFixTroubleShoot.resx">
+      <DependentUpon>202101251913332_aotherFixTroubleShoot.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

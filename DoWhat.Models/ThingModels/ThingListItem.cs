@@ -16,6 +16,7 @@ namespace DoWhat.Models.ThingModels
         [Display(Name = "Thing Heading")]
         public string Heading { get; set; }
 
+        [Display(Name = "Time Alloted in Min")]
         public int TimeAlloted { get; set; }
 
         [Display(Name = "Category Name")]

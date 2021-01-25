@@ -52,6 +52,7 @@ namespace DoWhat.Services
                     {
                         ThingId = entity.ThingId,
                         Heading = entity.Heading,
+                        CatagoryId = entity.CatagoryId,
                         Catagory = entity.Catagory,
                         TimeAllotted = entity.TimeAllotted,
                         IsCompleted = entity.IsCompleted,
@@ -62,7 +63,7 @@ namespace DoWhat.Services
             }
         }
 
-        // **get Resources by thing Id involves an Iemumerable
+        // **need to make a get Resources by thing Id - involves an Iemumerable??
 
         // **Assign a thing by join and querry syntax. I want a Thing that is of allotted time and of catagory.. 
 
@@ -96,7 +97,8 @@ namespace DoWhat.Services
                 entity.Heading = model.Heading;
                 entity.TimeAllotted = model.TimeAllotted;
                 entity.IsCompleted = model.IsCompleted;
-                //entity.CatagoryId = model.CatagoryId; // when i edit it wipes the catagory value/ now it just deletes the thing What the FUCK I'm so over this shit
+                entity.CatagoryId = model.CatagoryId; // **when i edit it wipes the catagory value/ now it just deletes the thing What the FUCK I'm so over this shit
+                //entity.Catagory.Name = model.Catagory.Name
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;
