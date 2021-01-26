@@ -39,6 +39,28 @@ namespace DoWhat.Services
             }
         }
 
+        public IEnumerable<ThingListByCatagory> GetThingListByCatagory(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx
+                    .Things
+                    .Where(e => e.CatagoryId == id && e.OwnerId == _userId)
+                    .Select(e => new ThingListByCatagory
+                    {
+                        ThingId = e.ThingId,
+                        Heading = e.Heading,
+                        TimeAlloted = e.TimeAllotted,
+                        IsCompleted = e.IsCompleted,
+                        CatagoryId = e.CatagoryId,
+                        Catagory = e.Catagory,
+                        CreatedUtc = e.CreatedUtc
+                    }
+                    );
+                return query.ToArray();
+            }
+        }
+
         public ThingDetail GetThingById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -61,12 +83,7 @@ namespace DoWhat.Services
                     };
             }
         }
-        //public IEnumerable<ThingResources> GetResourceByThingId(int id)
-        //{
-        // maybe all this goes in the resource controller?? BC Thing.CS doesn't know about Reource.CS but Resource.CS knows which thingId it belongs too.. 
-        //}
 
-        // **need to make a get Resources by thing Id - involves an Iemumerable??
 
         // **Assign a thing by join and querry syntax. I want a Thing that is of allotted time and of catagory.. 
 

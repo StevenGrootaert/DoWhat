@@ -263,6 +263,7 @@
     <Content Include="Views\Resource\Edit.cshtml" />
     <Content Include="Views\Resource\Delete.cshtml" />
     <Content Include="Views\Resource\IndexByThing.cshtml" />
+    <Content Include="Views\Thing\IndexByCatagory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
