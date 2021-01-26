@@ -10,24 +10,23 @@ using System.Web.Mvc;
 
 namespace DoWhat.Models.ResourceModels
 {
-    public class ResourceEdit
+    public class ResourceListByThing
     {
         public int ResourceId { get; set; }
+
+        [Display(Name = "Content Title")]
+        public string Title { get; set; }
+
+        [Required]
+        public string Content { get; set; }
+
+        [Display(Name = "Added")]
+        public DateTimeOffset CreatedUtc { get; set; }
 
         [ForeignKey("Thing")]
         [Display(Name = "Thing Id")]
         public int ThingId { get; set; }
         public virtual Thing Thing { get; set; }
-
-        [MaxLength(100, ErrorMessage = "Content Title can not be more than 100 charaters")]
-        [Display(Name = "Content Title")]
-        public string Title { get; set; }
-
-        [MaxLength(1000, ErrorMessage = "Content can not be more than 1000 charaters")]
-        public string Content { get; set; }
-
-        [Display(Name = "Modified")]    // not sure I need this either
-        public DateTimeOffset? ModifiedUtc { get; set; }
 
         public IEnumerable<SelectListItem> Things { get; set; } // not sure I need this here
     }

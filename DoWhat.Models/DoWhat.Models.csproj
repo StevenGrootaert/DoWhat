@@ -95,6 +95,7 @@
     <Compile Include="ResourceModels\ResourceCreate.cs" />
     <Compile Include="ResourceModels\ResourceDetail.cs" />
     <Compile Include="ResourceModels\ResourceEdit.cs" />
+    <Compile Include="ResourceModels\ResourceListByThing.cs" />
     <Compile Include="ResourceModels\ResourceListItem.cs" />
     <Compile Include="ThingModels\ThingCreate.cs" />
     <Compile Include="ThingModels\ThingDetail.cs" />

@@ -21,6 +21,15 @@ namespace DoWhat.WebMVC.Controllers
             return View(model.OrderBy(heading => heading.Thing.Heading));
         }
 
+        // *** GET: Reource/Thing {id}??
+        [ActionName("IndexByThing")] // nope that didn't work
+        public ActionResult IndexByThing(int id)
+        {
+            var service = CreateResourceService();
+            var model = service.GetResourceListByThing(id);
+            return View(model.OrderBy(created => created.CreatedUtc));
+        }
+
         // GET: Resource/Create
         public ActionResult Create()
         {

@@ -39,7 +39,6 @@ namespace DoWhat.Services
             }
         }
 
-        //public IEnumerable<ThingDetail> GetThingById(int id)
         public ThingDetail GetThingById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -58,10 +57,14 @@ namespace DoWhat.Services
                         IsCompleted = entity.IsCompleted,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc, 
-                        //Resource = entity.Resource -- I want to see the resources as a list in the view but I'm not sure how to do that
+                        //ResourceId = entity.ResourceId -- // trying to see list of assosiated resources in the details view for Thing
                     };
             }
         }
+        //public IEnumerable<ThingResources> GetResourceByThingId(int id)
+        //{
+        // maybe all this goes in the resource controller?? BC Thing.CS doesn't know about Reource.CS but Resource.CS knows which thingId it belongs too.. 
+        //}
 
         // **need to make a get Resources by thing Id - involves an Iemumerable??
 

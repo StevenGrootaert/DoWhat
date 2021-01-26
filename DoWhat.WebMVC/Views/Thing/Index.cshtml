@@ -62,7 +62,10 @@
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id=item.ThingId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.ThingId })
+                @Html.ActionLink("Details", "Details", new { id=item.ThingId }) |
+                @Html.ActionLink("Resources", "IndexByThing", "Resource", new { id = item.ThingId }, null)
+                @*@Html.ActionLink("Resources", "IndexByThing", "Resource",null,  new { id=item.ThingId}) @*I think I can just make a new view that gets resources by ThingId*@
+                @*@Html.ActionLink("Resources", "IndexByThing", "Resourese" new { id=item.ThingId}) *@
             </td>
         </tr>
     }

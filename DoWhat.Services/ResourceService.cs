@@ -58,6 +58,29 @@ namespace DoWhat.Services
             }
         }
 
+        //get ResourceByThingId
+        public IEnumerable<ResourceListByThing> GetResourceListByThing(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx
+                    .Resources
+                    .Where(e => e.ThingId == id && e.OwnerId == _userId)
+                    .Select(e => new ResourceListByThing
+                     {
+                         ResourceId = e.ResourceId,
+                         ThingId = e.ThingId,
+                         Thing = e.Thing,
+                         Title = e.Title,
+                         Content = e.Content,
+                         CreatedUtc = e.CreatedUtc
+                     }
+                     );
+                return query.ToArray();
+            }
+        }
+
+
         // CreateResource
         public bool CreateResource(ResourceCreate model)
         {

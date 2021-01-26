@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace DoWhat.Models.ThingModels
 {
@@ -36,6 +37,8 @@ namespace DoWhat.Models.ThingModels
         [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
 
+
+        public IEnumerable<SelectListItem> Resources { get; set; } // trying to get resources in the details view
 
     }
 
