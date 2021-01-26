@@ -21,6 +21,13 @@ namespace DoWhat.WebMVC.Controllers
             return View(model.OrderBy(time => time.TimeAlloted));
         }
 
+        public ActionResult IndexCompleted()
+        {
+            var service = CreateThingService();
+            var model = service.GetAllCompletedThings();
+            return View(model.OrderBy(time => time.TimeAlloted));
+        }
+
         // GET: Thing/Catagory/{id}
         public ActionResult IndexByCatagory(int id)
         {

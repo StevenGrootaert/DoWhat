@@ -264,6 +264,7 @@
     <Content Include="Views\Resource\Delete.cshtml" />
     <Content Include="Views\Resource\IndexByThing.cshtml" />
     <Content Include="Views\Thing\IndexByCatagory.cshtml" />
+    <Content Include="Views\Thing\IndexCompleted.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

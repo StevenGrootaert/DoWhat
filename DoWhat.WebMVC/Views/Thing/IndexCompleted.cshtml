@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<DoWhat.Models.ThingModels.ThingListItem>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "IndexCompleted";
 }
 
-<h2>List of Things</h2>
+<h2>List of Completed Things</h2>
 <p>(sorted by Time Allotted)</p>
 
 <p>
@@ -21,6 +21,7 @@
         </button>
     </div>
 }
+
 <table class="table">
     <tr>
         <th>
@@ -33,7 +34,6 @@
             @Html.DisplayNameFor(model => model.TimeAlloted)
         </th>
         <th>
-            @* The index view should only show !completed things make another view with ALL things completed +!completed *@
             @Html.DisplayNameFor(model => model.IsCompleted)
         </th>
         <th>
@@ -55,17 +55,15 @@
                 @Html.DisplayFor(modelItem => item.TimeAlloted)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IsCompleted) @* item.IsCompleted.Equals(false) doesn't work??  *@
+                @Html.DisplayFor(modelItem => item.IsCompleted)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CreatedUtc)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.ThingId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.ThingId }) |
+                @Html.ActionLink("Edit", "Edit", new { id = item.ThingId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ThingId }) |
                 @Html.ActionLink("Resources", "IndexByThing", "Resource", new { id = item.ThingId }, null)
-                @*@Html.ActionLink("Resources", "IndexByThing", "Resource",null,  new { id=item.ThingId}) @*I think I can just make a new view that gets resources by ThingId*@
-                @*@Html.ActionLink("Resources", "IndexByThing", "Resourese" new { id=item.ThingId}) *@
             </td>
         </tr>
     }
@@ -74,6 +72,5 @@
 
 <div>
     @Html.ActionLink("< Back to Main Page", "Index", "Home") |
-    @Html.ActionLink("Show Completed Things", "IndexCompleted")
+    @Html.ActionLink("Show Things to do", "Index")
 </div>
-

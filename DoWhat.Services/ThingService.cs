@@ -23,7 +23,8 @@ namespace DoWhat.Services
             {
                 var query = ctx
                     .Things
-                    .Where(e => e.OwnerId == _userId)
+                   //.Where(e => e.OwnerId == _userId)
+                    .Where(e => e.OwnerId == _userId && e.IsCompleted.Equals(false))
                     .Select(e => new ThingListItem
                     {
                         ThingId = e.ThingId,
@@ -38,6 +39,30 @@ namespace DoWhat.Services
                 return query.ToArray();
             }
         }
+
+        public IEnumerable<ThingListItem> GetAllCompletedThings()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx
+                    .Things
+                    //.Where(e => e.OwnerId == _userId)
+                    .Where(e => e.OwnerId == _userId && e.IsCompleted.Equals(true))
+                    .Select(e => new ThingListItem
+                    {
+                        ThingId = e.ThingId,
+                        CatagoryId = e.CatagoryId,
+                        Catagory = e.Catagory, // If I comment this out I can see Things that don't belong to catagories when that category gets deleted
+                        Heading = e.Heading,
+                        TimeAlloted = e.TimeAllotted,
+                        IsCompleted = e.IsCompleted,
+                        CreatedUtc = e.CreatedUtc
+                    }
+                    );
+                return query.ToArray();
+            }
+        }
+
 
         public IEnumerable<ThingListByCatagory> GetThingListByCatagory(int id)
         {
