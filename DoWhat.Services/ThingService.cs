@@ -63,7 +63,12 @@ namespace DoWhat.Services
             }
         }
 
+        // **Assign a thing by join and querry syntax. I want a Thing that is of AllottedTime and of CatagoryId.. 
+        // Need varaibles for CatagoryId and TimeAllotted that are passed in via drop downs... 
+        // TellMeWhatToDo(model?) model of inforamtion that gets made to make this work?
+        // TellmeWhatToDo(CatagoryInt int, AllottedTime int)
 
+        // write the method that returns the same as in the controller ctx
         public IEnumerable<ThingListByCatagory> GetThingListByCatagory(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -110,7 +115,6 @@ namespace DoWhat.Services
         }
 
 
-        // **Assign a thing by join and querry syntax. I want a Thing that is of allotted time and of catagory.. 
 
         // CreateThing
         public bool CreateThing(ThingCreate model)

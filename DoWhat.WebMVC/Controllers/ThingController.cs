@@ -40,7 +40,7 @@ namespace DoWhat.WebMVC.Controllers
         public ActionResult Create()
         {
             var ctx = new ApplicationDbContext();
-            ViewBag.Catagories = ctx.Catagories.ToList(); //** dropdown for catagory 
+            ViewBag.Catagories = ctx.Catagories.ToList(); //** dropdown for catagory fix/move this to service
 
             return View();
         }
@@ -74,7 +74,8 @@ namespace DoWhat.WebMVC.Controllers
             var service = CreateThingService();
             var detail = service.GetThingById(id);
             var ctx = new ApplicationDbContext();   // **added to get edit cat drop down to work
-            ViewBag.Catagories = ctx.Catagories.ToList(); //** dropdown for catagory 
+            ViewBag.Catagories = ctx.Catagories.ToList(); //** dropdown for catagory move to 
+            //ViewBag.Catagories = (move to service as a method call) ctx.Catagories.ToList(); //Fix this. later  multiple users.. 
             var model =
                 new ThingEdit
                 {
