@@ -39,8 +39,15 @@ namespace DoWhat.WebMVC.Controllers
         // GET: Thing/Create
         public ActionResult Create()
         {
-            var ctx = new ApplicationDbContext();
-            ViewBag.Catagories = ctx.Catagories.ToList(); //** dropdown for catagory fix/move this to service
+            //var ctx = new ApplicationDbContext(); ** guess I don't need that here any more
+            var service = CreateThingService();
+                        //ViewBag.Catagories = ctx.Catagories.ToList(); //** dropdown for catagory fix/move this to service
+                        //ViewBag.Catagories = CatagoriesToList(); //** dropdown for catagory fix/move this to service
+            // Fixed version*
+            //*var catagorySelectList = service.CatagoriesToList();
+            //*ViewBag.Catagories = catagorySelectList;
+            ViewBag.Catagories = service.CatagoriesToList();
+            // shorter version version ^^
 
             return View();
         }
@@ -73,9 +80,10 @@ namespace DoWhat.WebMVC.Controllers
         {
             var service = CreateThingService();
             var detail = service.GetThingById(id);
-            var ctx = new ApplicationDbContext();   // **added to get edit cat drop down to work
-            ViewBag.Catagories = ctx.Catagories.ToList(); //** dropdown for catagory move to 
-            //ViewBag.Catagories = (move to service as a method call) ctx.Catagories.ToList(); //Fix this. later  multiple users.. 
+            //var ctx = new ApplicationDbContext();   // **Not needed here anymore - added to get edit cat drop down to work
+            ViewBag.Catagories = service.CatagoriesToList();
+
+            //ViewBag.Catagories = ctx.Catagories.ToList(); //** dropdown for catagory move to 
             var model =
                 new ThingEdit
                 {

@@ -58,6 +58,13 @@ namespace DoWhat.Services
             }
         }
 
+        // helper method for Thing Drop Down
+        public List<Thing> ThingsToList()
+        {
+            var ctx = new ApplicationDbContext();
+            return ctx.Things.Where(e => e.OwnerId == _userId).ToList();
+        }
+
         //get ResourceByThingId
         public IEnumerable<ResourceListByThing> GetResourceListByThing(int id)
         {

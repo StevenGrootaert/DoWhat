@@ -109,12 +109,17 @@ namespace DoWhat.Services
                         IsCompleted = entity.IsCompleted,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc, 
-                        //ResourceId = entity.ResourceId -- // trying to see list of assosiated resources in the details view for Thing
                     };
             }
         }
 
-
+        // helper method for Catagory View drop down
+        public List<Catagory> CatagoriesToList()
+        {
+            var ctx = new ApplicationDbContext();
+            //return ctx.Catagories.ToList();
+            return ctx.Catagories.Where(e => e.OwnerId == _userId).ToList();
+        }
 
         // CreateThing
         public bool CreateThing(ThingCreate model)

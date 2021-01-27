@@ -33,8 +33,10 @@ namespace DoWhat.WebMVC.Controllers
         // GET: Resource/Create
         public ActionResult Create()
         {
-            var ctx = new ApplicationDbContext();
-            ViewBag.Things = ctx.Things.ToList();
+            var service = CreateResourceService();
+            ViewBag.Things = service.ThingsToList();
+            //var ctx = new ApplicationDbContext();
+            //ViewBag.Things = ctx.Things.ToList();
             return View();
         }
 
@@ -67,8 +69,9 @@ namespace DoWhat.WebMVC.Controllers
         {
             var service = CreateResourceService();
             var detail = service.GetResourceById(id);
-            var ctx = new ApplicationDbContext();
-            ViewBag.Things = ctx.Things.ToList();  // added for dropdown thing edit
+            //var ctx = new ApplicationDbContext();
+            //ViewBag.Things = ctx.Things.ToList();  // added for dropdown thing edit
+            ViewBag.Things = service.ThingsToList();
             var model =
                 new ResourceEdit
                 {
