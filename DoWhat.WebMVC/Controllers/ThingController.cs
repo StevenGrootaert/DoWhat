@@ -28,7 +28,7 @@ namespace DoWhat.WebMVC.Controllers
             return View(model.OrderBy(time => time.TimeAlloted));
         }
 
-        // GET: Thing/Catagory/{id}
+        // GET: Thing/IndexByCatagory/{id}
         public ActionResult IndexByCatagory(int id)
         {
             var service = CreateThingService();
@@ -36,14 +36,31 @@ namespace DoWhat.WebMVC.Controllers
             return View(model.OrderBy(time => time.TimeAlloted));
         }
 
+        /// -----------------------------------------------------------------------
+        /// this is a lot like the create a thing but we're not saving it?
+        
+        public ActionResult SelectThing()
+        {
+            var service = CreateThingService();
+            ViewBag.Catagories = service.CatagoriesToList();
+            return View();
+        }
+
+        
+        public ActionResult SelectedThingIndex(ThingSelection model)
+        {
+            var service = CreateThingService();
+            var indexModel = service.GetSelectedThing(model);
+            
+            return View(indexModel);
+        }
+         
+        /// -----------------------------------------------------------------------
+
         // GET: Thing/Create
         public ActionResult Create()
         {
-            //var ctx = new ApplicationDbContext(); ** guess I don't need that here any more
             var service = CreateThingService();
-                        //ViewBag.Catagories = ctx.Catagories.ToList(); //** dropdown for catagory fix/move this to service
-                        //ViewBag.Catagories = CatagoriesToList(); //** dropdown for catagory fix/move this to service
-            // Fixed version*
             //*var catagorySelectList = service.CatagoriesToList();
             //*ViewBag.Catagories = catagorySelectList;
             ViewBag.Catagories = service.CatagoriesToList();
@@ -80,10 +97,7 @@ namespace DoWhat.WebMVC.Controllers
         {
             var service = CreateThingService();
             var detail = service.GetThingById(id);
-            //var ctx = new ApplicationDbContext();   // **Not needed here anymore - added to get edit cat drop down to work
             ViewBag.Catagories = service.CatagoriesToList();
-
-            //ViewBag.Catagories = ctx.Catagories.ToList(); //** dropdown for catagory move to 
             var model =
                 new ThingEdit
                 {

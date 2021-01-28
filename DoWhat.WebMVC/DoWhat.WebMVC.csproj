@@ -265,6 +265,8 @@
     <Content Include="Views\Resource\IndexByThing.cshtml" />
     <Content Include="Views\Thing\IndexByCatagory.cshtml" />
     <Content Include="Views\Thing\IndexCompleted.cshtml" />
+    <Content Include="Views\Thing\SelectThing.cshtml" />
+    <Content Include="Views\Thing\SelectedThingIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

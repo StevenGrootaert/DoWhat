@@ -17,12 +17,11 @@ namespace DoWhat.WebMVC.Controllers
         {
             var service = CreateResourceService();
             var model = service.GetResources();
-            //return View(model.OrderByDescending(created => created.CreatedUtc));
             return View(model.OrderBy(heading => heading.Thing.Heading));
         }
 
-        // *** GET: Reource/Thing {id}??
-        [ActionName("IndexByThing")] // nope that didn't work
+        // *** GET: Reource/Thing/{id}
+        [ActionName("IndexByThing")]
         public ActionResult IndexByThing(int id)
         {
             var service = CreateResourceService();
@@ -35,8 +34,6 @@ namespace DoWhat.WebMVC.Controllers
         {
             var service = CreateResourceService();
             ViewBag.Things = service.ThingsToList();
-            //var ctx = new ApplicationDbContext();
-            //ViewBag.Things = ctx.Things.ToList();
             return View();
         }
 
@@ -69,8 +66,6 @@ namespace DoWhat.WebMVC.Controllers
         {
             var service = CreateResourceService();
             var detail = service.GetResourceById(id);
-            //var ctx = new ApplicationDbContext();
-            //ViewBag.Things = ctx.Things.ToList();  // added for dropdown thing edit
             ViewBag.Things = service.ThingsToList();
             var model =
                 new ResourceEdit
@@ -78,7 +73,7 @@ namespace DoWhat.WebMVC.Controllers
                     ResourceId = detail.ResourceId,
                     Title = detail.Title,
                     Content = detail.Content,
-                    ThingId = detail.ThingId // added for thing dropdown edit
+                    ThingId = detail.ThingId
                 };
             return View(model);
         }

@@ -27,7 +27,7 @@ namespace DoWhat.Services
                     .Select(e => new ResourceListItem
                     {
                         ResourceId = e.ResourceId,
-                        ThingId = e.ThingId, // not sure I need the ID specfically if the virtual thing is coming in
+                        ThingId = e.ThingId,
                         Thing = e.Thing,
                         Title = e.Title,
                         CreatedUtc = e.CreatedUtc
@@ -88,12 +88,11 @@ namespace DoWhat.Services
         }
 
 
-        // CreateResource
+        // CreateResource ** might be intresting to create a resource within the detail view of a thing
         public bool CreateResource(ResourceCreate model)
         {
             var entity = new Resource()
             {
-                // is there a way to create this within the details of a thing?
                 OwnerId = _userId,
                 ThingId = model.ThingId,
                 Title = model.Title,
@@ -118,8 +117,7 @@ namespace DoWhat.Services
                     .Single(e => e.ResourceId == model.ResourceId && e.OwnerId == _userId);
                 entity.Title = model.Title;
                 entity.Content = model.Content;
-                entity.ThingId = model.ThingId; //
-                //entity.ThingId = model.ThingId; ** short term fix for ThingId conflict during the edit view. I feel like I'm going to need this when trying to update the Thing it belongs to. 
+                entity.ThingId = model.ThingId;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
 
                 return ctx.SaveChanges() == 1;

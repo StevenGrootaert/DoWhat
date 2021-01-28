@@ -23,13 +23,12 @@ namespace DoWhat.Services
             {
                 var query = ctx
                     .Things
-                   //.Where(e => e.OwnerId == _userId)
                     .Where(e => e.OwnerId == _userId && e.IsCompleted.Equals(false))
                     .Select(e => new ThingListItem
                     {
                         ThingId = e.ThingId,
                         CatagoryId = e.CatagoryId,
-                        Catagory = e.Catagory, // If I comment this out I can see Things that don't belong to catagories when that category gets deleted
+                        Catagory = e.Catagory, // ** comment note
                         Heading = e.Heading,
                         TimeAlloted = e.TimeAllotted,
                         IsCompleted = e.IsCompleted,
@@ -46,13 +45,12 @@ namespace DoWhat.Services
             {
                 var query = ctx
                     .Things
-                    //.Where(e => e.OwnerId == _userId)
                     .Where(e => e.OwnerId == _userId && e.IsCompleted.Equals(true))
                     .Select(e => new ThingListItem
                     {
                         ThingId = e.ThingId,
                         CatagoryId = e.CatagoryId,
-                        Catagory = e.Catagory, // If I comment this out I can see Things that don't belong to catagories when that category gets deleted
+                        Catagory = e.Catagory, // ** comment note
                         Heading = e.Heading,
                         TimeAlloted = e.TimeAllotted,
                         IsCompleted = e.IsCompleted,
@@ -67,8 +65,30 @@ namespace DoWhat.Services
         // Need varaibles for CatagoryId and TimeAllotted that are passed in via drop downs... 
         // TellMeWhatToDo(model?) model of inforamtion that gets made to make this work?
         // TellmeWhatToDo(CatagoryInt int, AllottedTime int)
-
-        // write the method that returns the same as in the controller ctx
+        
+        public IEnumerable<ThingListItem> GetSelectedThing(ThingSelection model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx
+                    .Things
+                    .Where(e => e.OwnerId == _userId && e.CatagoryId == model.CatagoryId && e.TimeAllotted <= model.TimeAllotted && e.IsCompleted.Equals(false))
+                    .Select(s => new ThingListItem
+                    {
+                        ThingId = s.ThingId,
+                        CatagoryId = s.CatagoryId,
+                        Catagory = s.Catagory,
+                        Heading = s.Heading,
+                        TimeAlloted = s.TimeAllotted,
+                        IsCompleted = s.IsCompleted,
+                        CreatedUtc = s.CreatedUtc
+                    }
+                    );
+                return query.ToArray();
+            }
+        }
+        
+        /// -----------------------------------------------------------------------
         public IEnumerable<ThingListByCatagory> GetThingListByCatagory(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -117,7 +137,6 @@ namespace DoWhat.Services
         public List<Catagory> CatagoriesToList()
         {
             var ctx = new ApplicationDbContext();
-            //return ctx.Catagories.ToList();
             return ctx.Catagories.Where(e => e.OwnerId == _userId).ToList();
         }
 
@@ -172,4 +191,7 @@ namespace DoWhat.Services
             }
         }
     }
+
+    // ** NOTE: if a Catagory gets deleted it orphans the Things in views
+    // - If you comment that line the Things get listed in the view regarless of the catagory (not having a name anymore)
 }

@@ -102,6 +102,7 @@
     <Compile Include="ThingModels\ThingEdit.cs" />
     <Compile Include="ThingModels\ThingListByCatagory.cs" />
     <Compile Include="ThingModels\ThingListItem.cs" />
+    <Compile Include="ThingModels\ThingSelection.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
