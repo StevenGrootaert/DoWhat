@@ -13,21 +13,21 @@ namespace DoWhat.WebMVC.Controllers
     [Authorize]
     public class CatagoryController : Controller
     {
-        private readonly ICatagoryService _catagoryService;
-        public CatagoryController(ICatagoryService catagoryService)
-        {
-            _catagoryService = catagoryService;
-        }
+        //private readonly ICatagoryService _catagoryService;
+        //public CatagoryController(ICatagoryService catagoryService)
+        //{
+        //    _catagoryService = catagoryService;
+        //}
 
 
         // GET: Catagory/index
         public ActionResult Index()
         {
             var service = CreateCatagoryService();
-            //var model = service.GetCatagories();
-            //return View(model.OrderBy(cat => cat.Name));
-            var model = _catagoryService.GetCatagories();
+            var model = service.GetCatagories();
             return View(model.OrderBy(cat => cat.Name));
+            //var model = _catagoryService.GetCatagories();
+            //return View(model.OrderBy(cat => cat.Name));
         }
 
         // GET: Catagory/Create
