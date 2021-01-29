@@ -13,18 +13,20 @@ namespace DoWhat.WebMVC.Controllers
     [Authorize]
     public class CatagoryController : Controller
     {
-        //private readonly ICatagoryService _catagoryService;
-        //public CatagoryController(ICatagoryService catagoryService)
-        //{
-        //    _catagoryService = catagoryService;
-        //}
+        private readonly ICatagoryService _catagoryService;
+        public CatagoryController(ICatagoryService catagoryService)
+        {
+            _catagoryService = catagoryService;
+        }
 
 
         // GET: Catagory/index
         public ActionResult Index()
         {
             var service = CreateCatagoryService();
-            var model = service.GetCatagories();
+            //var model = service.GetCatagories();
+            //return View(model.OrderBy(cat => cat.Name));
+            var model = _catagoryService.GetCatagories();
             return View(model.OrderBy(cat => cat.Name));
         }
 
@@ -119,7 +121,7 @@ namespace DoWhat.WebMVC.Controllers
         // Helper Method
         private CatagoryService CreateCatagoryService()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
+            var userId = Guid.Parse(User.Identity.GetUserId()); // this needs to be in each model that calls for it
             var service = new CatagoryService(userId);
             return service;
         }

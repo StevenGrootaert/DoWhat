@@ -15,20 +15,20 @@ namespace DoWhat.WebMVC
         {
             //// ------------ this is for the Autofac dependancy injection
 
-            //var builder = new ContainerBuilder();
+            var builder = new ContainerBuilder();
 
-            //builder.RegisterControllers(typeof(MvcApplication).Assembly);
-            //// OPTIONAL: Register web abstractions like HttpContextBase.
-            //builder.RegisterModule<AutofacWebTypesModule>();
+            builder.RegisterControllers(typeof(MvcApplication).Assembly);
+            // OPTIONAL: Register web abstractions like HttpContextBase.
+            builder.RegisterModule<AutofacWebTypesModule>();
 
             //builder.RegisterType<ThingService>().As<IThingService>();
-            //builder.RegisterType<CatagoryService>().As<ICatagoryService>();
+            builder.RegisterType<CatagoryService>().As<ICatagoryService>();
             //builder.RegisterType<ResourceService>().As<IResourceService>();
 
 
             //// Set the dependency resolver to be Autofac.
-            //var container = builder.Build();
-            //DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+            var container = builder.Build();
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
 
             // -------------
 

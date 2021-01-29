@@ -12,7 +12,7 @@ namespace DoWhat.Services
     {
         private readonly Guid _userId;
 
-        public CatagoryService(Guid userId)
+        public CatagoryService(Guid userId) // need to remove this for the DI and interface to work
         {
             _userId = userId;
         }
