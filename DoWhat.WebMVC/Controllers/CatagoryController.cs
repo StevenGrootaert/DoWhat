@@ -1,4 +1,5 @@
-﻿using DoWhat.Models.CatagoryModels;
+﻿using DoWhat.Contracts;
+using DoWhat.Models.CatagoryModels;
 using DoWhat.Services;
 using Microsoft.AspNet.Identity;
 using System;
@@ -12,6 +13,13 @@ namespace DoWhat.WebMVC.Controllers
     [Authorize]
     public class CatagoryController : Controller
     {
+        //private readonly ICatagoryService _catagoryService;
+        //public CatagoryController(ICatagoryService catagoryService)
+        //{
+        //    _catagoryService = catagoryService;
+        //}
+
+
         // GET: Catagory/index
         public ActionResult Index()
         {

@@ -1,4 +1,5 @@
-﻿using DoWhat.Data;
+﻿using DoWhat.Contracts;
+using DoWhat.Data;
 using DoWhat.Models.ThingModels;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DoWhat.Services
 {
-    public class ThingService
+    public class ThingService : IThingService
     {
         private readonly Guid _userId;
 
@@ -60,11 +61,6 @@ namespace DoWhat.Services
                 return query.ToArray();
             }
         }
-
-        // **Assign a thing by join and querry syntax. I want a Thing that is of AllottedTime and of CatagoryId.. 
-        // Need varaibles for CatagoryId and TimeAllotted that are passed in via drop downs... 
-        // TellMeWhatToDo(model?) model of inforamtion that gets made to make this work?
-        // TellmeWhatToDo(CatagoryInt int, AllottedTime int)
         
         public IEnumerable<ThingListItem> GetSelectedThing(ThingSelection model)
         {

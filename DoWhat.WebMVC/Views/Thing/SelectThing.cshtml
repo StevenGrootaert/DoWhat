@@ -7,20 +7,20 @@
 <h2>Find a Thing to do</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         @*<h4>ThingSelection</h4>*@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TimeAllotted, htmlAttributes: new { @class = "control-label col-md-2"})
+            @Html.LabelFor(model => model.TimeAllotted, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("TimeAllotted", new List<SelectListItem> 
-                //"TimeAlloted" has to be one word just like the model 
+                @Html.DropDownList("TimeAllotted", new List<SelectListItem>
+                //"TimeAlloted" has to be one word just like the model
                 {
                     new SelectListItem{ Text="5 min", Value = "5"},
                     new SelectListItem{ Text="15 min", Value = "15"},
@@ -34,7 +34,7 @@
             </div>
         </div>
 
-        <div class="form-group"> 
+        <div class="form-group">
             @Html.LabelFor(model => model.CatagoryId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.CatagoryId, new SelectList(ViewBag.Catagories, "CatagoryId", "Name"), new { htmlAttributes = new { @class = "form-control" } })
@@ -44,15 +44,64 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Find" class="btn btn-default" onclick="location.href='@Url.Action("SelectedThingIndex", "Thing")'"/>
+                <input type="submit" value="Find" class="btn btn-default" />
+                @*<input type="submit" value="Find" class="btn btn-default" onclick="location.href='@Url.Action("SelectedThingIndex", "Thing")'"/>*@
                 @*@Html.ActionLink("find", "SelectedThingIndex")*@
             </div>
         </div>
     </div>
 }
 
+<table class="table">
+    <tr>
+        <th>
+            Catagory Name
+        </th>
+        <th>
+            Heading
+        </th>
+        <th>
+            Time Alloted)
+        </th>
+        <th>
+            IsCompleted)
+        </th>
+        <th>
+            Created Utc)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.ThingsSelected)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Catagory.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Heading)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeAlloted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsCompleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedUtc)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ThingId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ThingId }) |
+                @Html.ActionLink("Resources", "IndexByThing", "Resource", new { id = item.ThingId }, null)
+            </td>
+        </tr>
+    }
+
+</table>
+
 <div>
-    @Html.ActionLink("< I don't want to do a Thing", "Index", "Home" )
+    @Html.ActionLink("< I don't want to do a Thing", "Index", "Home")
 </div>
 
 @section Scripts {

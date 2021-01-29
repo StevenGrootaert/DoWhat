@@ -1,4 +1,5 @@
-﻿using DoWhat.Data;
+﻿using DoWhat.Contracts;
+using DoWhat.Data;
 using DoWhat.Models.ThingModels;
 using DoWhat.Services;
 using Microsoft.AspNet.Identity;
@@ -13,6 +14,12 @@ namespace DoWhat.WebMVC.Controllers
     [Authorize]
     public class ThingController : Controller
     {
+        //private readonly IThingService _thingService;
+        //public ThingController(IThingService thingService)
+        //{
+        //    _thingService = thingService;
+        //}
+
         // GET: Thing/index
         public ActionResult Index()
         {
@@ -43,16 +50,22 @@ namespace DoWhat.WebMVC.Controllers
         {
             var service = CreateThingService();
             ViewBag.Catagories = service.CatagoriesToList();
-            return View();
+            // redirect to action tot the SelectedThingIndex? need to take those submitted values and not save them but pass them
+            return View(new ThingSelection());
         }
 
         
-        public ActionResult SelectedThingIndex(ThingSelection model)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SelectThing(ThingSelection model)
         {
+            if (!ModelState.IsValid) return View(model);
             var service = CreateThingService();
-            var indexModel = service.GetSelectedThing(model);
-            
-            return View(indexModel);
+            ViewBag.Catagories = service.CatagoriesToList();
+            model.ThingsSelected = service.GetSelectedThing(model); // this line I don't get anymore -- this should fill out the list in the ThingSlection model??
+            //return View(model.OrderBy(time => time.TimeAlloted));
+            return View(model);
+            //return RedirectToAction("SelectedThingIndex");
         }
          
         /// -----------------------------------------------------------------------

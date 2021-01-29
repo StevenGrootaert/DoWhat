@@ -1,4 +1,5 @@
-﻿using DoWhat.Data;
+﻿using DoWhat.Contracts;
+using DoWhat.Data;
 using DoWhat.Models.ResourceModels;
 using DoWhat.Services;
 using Microsoft.AspNet.Identity;
@@ -13,6 +14,12 @@ namespace DoWhat.WebMVC.Controllers
     [Authorize]
     public class ResourceController : Controller
     {
+        //private readonly IResourceService _resourceService;
+        //public ResourceController(IResourceService resourceService)
+        //{
+        //    _resourceService = resourceService;
+        //}
+
         public ActionResult Index()
         {
             var service = CreateResourceService();
