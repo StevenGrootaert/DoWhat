@@ -61,13 +61,13 @@
             Heading
         </th>
         <th>
-            Time Alloted)
+            Time (in Min)
         </th>
+        @*<th>
+            Not Done Yet
+        </th>*@
         <th>
-            IsCompleted)
-        </th>
-        <th>
-            Created Utc)
+            Date Added
         </th>
         <th></th>
     </tr>
@@ -84,14 +84,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.TimeAlloted)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.IsCompleted)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.CreatedUtc)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ThingId }) |
+                @Html.ActionLink("Did you do it?", "Edit", new { id = item.ThingId }) |
                 @Html.ActionLink("Details", "Details", new { id = item.ThingId }) |
                 @Html.ActionLink("Resources", "IndexByThing", "Resource", new { id = item.ThingId }, null)
             </td>

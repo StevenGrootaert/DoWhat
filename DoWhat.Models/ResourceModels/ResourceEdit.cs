@@ -15,7 +15,7 @@ namespace DoWhat.Models.ResourceModels
         public int ResourceId { get; set; }
 
         [ForeignKey("Thing")]
-        [Display(Name = "Thing Id")]
+        [Display(Name = "Thing")]
         public int ThingId { get; set; }
         public virtual Thing Thing { get; set; }
 
