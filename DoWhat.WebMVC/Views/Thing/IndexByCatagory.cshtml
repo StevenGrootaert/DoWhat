@@ -1,0 +1,69 @@
+﻿@model IEnumerable<DoWhat.Models.ThingModels.ThingListByCatagory>
+
+@{
+    ViewBag.Title = "IndexByCatagory";
+}
+
+<h2>Things in Catagory</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        @*<th>
+                @Html.DisplayNameFor(model => model.ThingId)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Heading)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeAlloted)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.CatagoryId)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.IsCompleted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.ThingId)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Heading)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeAlloted)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.CatagoryId)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.IsCompleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedUtc)
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |*@
+                @Html.ActionLink("Details", "Details", new { id = item.ThingId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ThingId })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("< Back to List of Catagories", "Index", "Catagory")
+</p>
+

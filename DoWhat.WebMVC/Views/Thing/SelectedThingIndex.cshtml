@@ -1,0 +1,58 @@
+﻿@model IEnumerable<DoWhat.Models.ThingModels.ThingListItem>
+
+@{
+    ViewBag.Title = "SelectedThingIndex";
+}
+
+<h2>Selected Thing Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Catagory.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Heading)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeAlloted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsCompleted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Catagory.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Heading)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeAlloted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsCompleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedUtc)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ThingId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ThingId }) |
+                @Html.ActionLink("Resources", "IndexByThing", "Resource", new { id = item.ThingId }, null)
+            </td>
+        </tr>
+    }
+
+</table>

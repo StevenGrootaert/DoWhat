@@ -11,14 +11,10 @@ namespace DoWhat.Data
     public class Catagory
     {
         [Key]
-                 // need an entry for none of "defualt/ uncatagorized" like home 
         public int CatagoryId { get; set; }
 
-        //public string CreatorId { get; set; } // not sure I need this here??  why doesn't public Guid OwnerId work? why does it have to nbe CreatorID
-        //when the logged in user edits this it will set this UserId == CreatorId This was in the walkthrough somewhere
-
         [Required]
-        public Guid OwnerId { get; set; } // IDK when/if to use CreatorID AuthorID etc. 
+        public Guid OwnerId { get; set; } 
 
         [Required]
         [Display(Name = "Catagory Name")]
@@ -26,6 +22,8 @@ namespace DoWhat.Data
 
         [Display(Name = "Catagory Description")]
         public string Description { get; set; }
- 
+
+        //public IList<Thing> Things { get; set; }    // will this allow me to list all the Things that belong to this catagoryId?
+
     }
 }

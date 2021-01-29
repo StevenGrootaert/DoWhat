@@ -1,8 +1,16 @@
 ﻿body {
+    background-color: lightcyan;
     padding-top: 50px;
     padding-bottom: 20px;
 }
 
+.jumbotron {
+    background-color: lightsteelblue;
+}
+
+.container .jumbotron {
+    border-radius: 0px 0px 75px 0px;
+}
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;

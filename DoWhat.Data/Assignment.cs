@@ -18,6 +18,10 @@ namespace DoWhat.Data
         public int ThingId { get; set; }
         public virtual Thing Thing { get; set; }
 
+        [ForeignKey("Catagory")]
+        public int CatagoryId { get; set; }
+        public virtual Catagory Catagory { get; set; }
+
         // anything else? is this even useful IDK ?? 
         // IsCompleted doesn't make sense here becuase it's tied to the assignment not the thing that needs doing.. 
         // This whole Class might be more useful fo setting up recurring tasks/things. 

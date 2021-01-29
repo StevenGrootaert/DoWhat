@@ -1,0 +1,9 @@
+﻿@model System.DateTimeOffset?
+
+<span>
+    @(Model.HasValue ? Model.Value.LocalDateTime.ToString("d") : "-")
+</span>
+
+@* more date time options here:
+    https://docs.microsoft.com/en-us/dotnet/standard/base-types/standard-date-and-time-format-strings
+*@

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<DoWhat.Models.ResourceModels.ResourceListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Resource List</h2>
+<p> (sorted by Thing Heading)</p>
+
+<p>
+    @Html.ActionLink("Add Resource", "Create", "Resource", null, new { @class = "btn btn-primary btn-large" })
+</p>
+
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+        @TempData["SaveResult"]
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+    </div>
+}
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Thing.Heading)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedUtc)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Thing.Heading)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedUtc)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ResourceId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ResourceId })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <div>
+        @Html.ActionLink("< Back to Main Page", "Index", "Home")
+    </div>
