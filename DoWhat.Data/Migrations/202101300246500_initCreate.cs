@@ -3,7 +3,7 @@ namespace DoWhat.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class initCreate : DbMigration
     {
         public override void Up()
         {
@@ -13,27 +13,15 @@ namespace DoWhat.Data.Migrations
                     {
                         AssignmentId = c.Int(nullable: false, identity: true),
                         ThingId = c.Int(nullable: false),
+                        CatagoryId = c.Int(nullable: false),
                         CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
                         ModifiedUtc = c.DateTimeOffset(precision: 7),
                     })
                 .PrimaryKey(t => t.AssignmentId)
-                .ForeignKey("dbo.Thing", t => t.ThingId, cascadeDelete: true)
-                .Index(t => t.ThingId);
-            
-            CreateTable(
-                "dbo.Thing",
-                c => new
-                    {
-                        ThingId = c.Int(nullable: false, identity: true),
-                        OwnerId = c.Guid(nullable: false),
-                        Heading = c.String(nullable: false, maxLength: 100),
-                        SubHeading = c.String(maxLength: 500),
-                        TimeAllotted = c.Int(nullable: false),
-                        IsCompleted = c.Boolean(nullable: false),
-                        CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
-                        ModifiedUtc = c.DateTimeOffset(precision: 7),
-                    })
-                .PrimaryKey(t => t.ThingId);
+                .ForeignKey("dbo.Catagory", t => t.CatagoryId, cascadeDelete: false)
+                .ForeignKey("dbo.Thing", t => t.ThingId, cascadeDelete: false)
+                .Index(t => t.ThingId)
+                .Index(t => t.CatagoryId);
             
             CreateTable(
                 "dbo.Catagory",
@@ -45,6 +33,23 @@ namespace DoWhat.Data.Migrations
                         Description = c.String(),
                     })
                 .PrimaryKey(t => t.CatagoryId);
+            
+            CreateTable(
+                "dbo.Thing",
+                c => new
+                    {
+                        ThingId = c.Int(nullable: false, identity: true),
+                        OwnerId = c.Guid(nullable: false),
+                        Heading = c.String(nullable: false),
+                        TimeAllotted = c.Int(nullable: false),
+                        CatagoryId = c.Int(nullable: false),
+                        IsCompleted = c.Boolean(nullable: false),
+                        CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
+                        ModifiedUtc = c.DateTimeOffset(precision: 7),
+                    })
+                .PrimaryKey(t => t.ThingId)
+                .ForeignKey("dbo.Catagory", t => t.CatagoryId, cascadeDelete: false)
+                .Index(t => t.CatagoryId);
             
             CreateTable(
                 "dbo.Resource",
@@ -59,7 +64,7 @@ namespace DoWhat.Data.Migrations
                         ModifiedUtc = c.DateTimeOffset(precision: 7),
                     })
                 .PrimaryKey(t => t.ResourceId)
-                .ForeignKey("dbo.Thing", t => t.ThingId, cascadeDelete: true)
+                .ForeignKey("dbo.Thing", t => t.ThingId, cascadeDelete: false)
                 .Index(t => t.ThingId);
             
             CreateTable(
@@ -142,11 +147,15 @@ namespace DoWhat.Data.Migrations
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
             DropForeignKey("dbo.Resource", "ThingId", "dbo.Thing");
             DropForeignKey("dbo.Assignment", "ThingId", "dbo.Thing");
+            DropForeignKey("dbo.Thing", "CatagoryId", "dbo.Catagory");
+            DropForeignKey("dbo.Assignment", "CatagoryId", "dbo.Catagory");
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
             DropIndex("dbo.Resource", new[] { "ThingId" });
+            DropIndex("dbo.Thing", new[] { "CatagoryId" });
+            DropIndex("dbo.Assignment", new[] { "CatagoryId" });
             DropIndex("dbo.Assignment", new[] { "ThingId" });
             DropTable("dbo.IdentityUserLogin");
             DropTable("dbo.IdentityUserClaim");
@@ -154,8 +163,8 @@ namespace DoWhat.Data.Migrations
             DropTable("dbo.IdentityUserRole");
             DropTable("dbo.IdentityRole");
             DropTable("dbo.Resource");
-            DropTable("dbo.Catagory");
             DropTable("dbo.Thing");
+            DropTable("dbo.Catagory");
             DropTable("dbo.Assignment");
         }
     }

@@ -10,7 +10,6 @@ namespace DoWhat.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "DoWhat.Data.ApplicationDbContext";
         }
 
         protected override void Seed(DoWhat.Data.ApplicationDbContext context)

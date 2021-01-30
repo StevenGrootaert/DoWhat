@@ -119,37 +119,9 @@
     <Compile Include="Assignment.cs" />
     <Compile Include="Catagory.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\202101132243363_InitialCreate.cs" />
-    <Compile Include="Migrations\202101132243363_InitialCreate.Designer.cs">
-      <DependentUpon>202101132243363_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202101142301466_InitialCreate1.cs" />
-    <Compile Include="Migrations\202101142301466_InitialCreate1.Designer.cs">
-      <DependentUpon>202101142301466_InitialCreate1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202101170252528_fkeynull.cs" />
-    <Compile Include="Migrations\202101170252528_fkeynull.Designer.cs">
-      <DependentUpon>202101170252528_fkeynull.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202101172223570_updating-inprogress-catagory.cs" />
-    <Compile Include="Migrations\202101172223570_updating-inprogress-catagory.Designer.cs">
-      <DependentUpon>202101172223570_updating-inprogress-catagory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202101192331203_updated resource and thing.cs" />
-    <Compile Include="Migrations\202101192331203_updated resource and thing.Designer.cs">
-      <DependentUpon>202101192331203_updated resource and thing.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202101222059324_added_ThingHeading.cs" />
-    <Compile Include="Migrations\202101222059324_added_ThingHeading.Designer.cs">
-      <DependentUpon>202101222059324_added_ThingHeading.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202101241637581_addingRequiredToCategoryThingcs.cs" />
-    <Compile Include="Migrations\202101241637581_addingRequiredToCategoryThingcs.Designer.cs">
-      <DependentUpon>202101241637581_addingRequiredToCategoryThingcs.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202101251913332_aotherFixTroubleShoot.cs" />
-    <Compile Include="Migrations\202101251913332_aotherFixTroubleShoot.Designer.cs">
-      <DependentUpon>202101251913332_aotherFixTroubleShoot.cs</DependentUpon>
+    <Compile Include="Migrations\202101300246500_initCreate.cs" />
+    <Compile Include="Migrations\202101300246500_initCreate.Designer.cs">
+      <DependentUpon>202101300246500_initCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -161,29 +133,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202101132243363_InitialCreate.resx">
-      <DependentUpon>202101132243363_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101142301466_InitialCreate1.resx">
-      <DependentUpon>202101142301466_InitialCreate1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101170252528_fkeynull.resx">
-      <DependentUpon>202101170252528_fkeynull.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101172223570_updating-inprogress-catagory.resx">
-      <DependentUpon>202101172223570_updating-inprogress-catagory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101192331203_updated resource and thing.resx">
-      <DependentUpon>202101192331203_updated resource and thing.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101222059324_added_ThingHeading.resx">
-      <DependentUpon>202101222059324_added_ThingHeading.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101241637581_addingRequiredToCategoryThingcs.resx">
-      <DependentUpon>202101241637581_addingRequiredToCategoryThingcs.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101251913332_aotherFixTroubleShoot.resx">
-      <DependentUpon>202101251913332_aotherFixTroubleShoot.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202101300246500_initCreate.resx">
+      <DependentUpon>202101300246500_initCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
