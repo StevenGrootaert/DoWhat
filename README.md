@@ -1,0 +1,46 @@
+# DoWhat
+1150 RedBadge WebMVC project
+
+<h4>Get the most out of the app follow these steps:</h4>
+<hr />
+<h3>Adding Content:</h3>
+<h4>1. Make some Categoies</h4>
+<strong>You'll need to make at least ONE category in order to make 'Things' you want to do </strong>
+<p>
+    - you can start with a "miscellaneous" or an "uncategorized" Category. Categories help you define areas of your life that you want to focus on. If you're in the mood to work on some DIY projects around the house make this a Category.
+    Likewise, if you have some side projects you've been meaning to get to, make this another Category "Side Projects". Categories can be for Things you want to do that aren't mission critical.
+    You can have a Category for games that you want to try, or for books you've been meaning to read (and so on).
+</p>
+<br />
+<h4>2. Make some Things</h4>
+<p>When you 'make a Thing' you'll add a Heading - this is what you'll see throughout the app as the title of the Thing you want to do. Next you'll select an amount of time you'd like to dedicate to the Thing.
+    This would be either the ammount of time you'll think it will take to complete the Thing or how long you want to spend doing a Thing. Finally you'll add the Thing to a Category so that you'll be able to filter the Things you'll want to do later.</p>
+<br />
+<h4>3. Add some Resources</h4>
+<p>Sometimes you'll want to add some additional information to the Things you want to do. These can be extra notes, shopping lists, helpful web links like blog posts
+    or video links - anything you can fit into a text box. When Making these resources you'll attach them to a Thing by finding that Heading (title) of the Thing and then saving it.
+    You can find all the resources that belong to that thing by going to the list of things and clicking on resources to the right. </p>
+<hr />
+<h3>Using the App:</h3>
+<h4>Find a Thing to do</h4>
+<p>Using this will allow you to find a filtered list of your Things to do based on the amount of time you have available and from what category pool you want to draw from. 
+    With this filtered list you can see the details and connected resources of that Thing. You also have a link that asks if you did the Thing (edit view) - it is here that you can mark the Thing as completed and it will be removed from the lists.</p>
+<hr />
+<h4>Browse the Lists</h4>
+<strong>Things:</strong>
+<p>The list of Things is a view that will show you all the Things you have made sorted by the time you have allotted to it. This view is only showing you Things that are not completed - to see a list of completed Things there is a link at the bottom of the list.
+    Here you can also edit the Thing (change the Heading) and change the Category that it belongs to, the time allotted for it. It is here that you can also mark the Thing as completed. </p>
+<br />
+<strong>Categories:</strong>
+<p>The List of Categories shows all the Categories that you have made and the description for it. You can also edit the Category Name and Description. When viewing the list of Categories you can click on the Things to the right and view a list of all the Things that belong to that Category.
+    In this view you'll be able to see ALL the Things that belong to the Category sorted by the time allotted to it.  </p>
+<br />
+<strong>Resources:</strong>
+<p>The list of Resources shows a list of all Resources sorted by Thing. You can click on Details to see an expanded view of that Resource. You may also edit the Resource to update your content or change what Thing it belongs to.</p>
+<br />
+
+<h3>It is not recommended that you delete a category</h3>
+<p> Doing so will remove all the Things in that Category from view. If you wish to delete a Category it is best practice to delete all the Things within that Category first and then delete the Category. 
+    You can more easily do this in the Category List and viewing the Things within the Category and deleting them from there.</p>
+ <br />   
+ <P>This Project was created with ASP.NET / MVC5 was styled using Bootstrap 3.</P>
