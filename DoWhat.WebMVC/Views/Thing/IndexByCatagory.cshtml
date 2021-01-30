@@ -11,18 +11,13 @@
 </p>
 <table class="table">
     <tr>
-        @*<th>
-                @Html.DisplayNameFor(model => model.ThingId)
-            </th>*@
+       
         <th>
             @Html.DisplayNameFor(model => model.Heading)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TimeAlloted)
         </th>
-        @*<th>
-                @Html.DisplayNameFor(model => model.CatagoryId)
-            </th>*@
         <th>
             @Html.DisplayNameFor(model => model.IsCompleted)
         </th>
@@ -35,18 +30,12 @@
     @foreach (var item in Model)
     {
         <tr>
-            @*<td>
-                    @Html.DisplayFor(modelItem => item.ThingId)
-                </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Heading)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TimeAlloted)
             </td>
-            @*<td>
-                    @Html.DisplayFor(modelItem => item.CatagoryId)
-                </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.IsCompleted)
             </td>
@@ -54,7 +43,6 @@
                 @Html.DisplayFor(modelItem => item.CreatedUtc)
             </td>
             <td>
-                @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |*@
                 @Html.ActionLink("Details", "Details", new { id = item.ThingId }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.ThingId })
             </td>

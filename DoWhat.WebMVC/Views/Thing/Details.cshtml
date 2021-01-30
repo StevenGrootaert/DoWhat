@@ -14,7 +14,6 @@
             @Html.HiddenFor(model => model.ThingId)
         </dt>
 
-
         <dt>
             @Html.DisplayNameFor(model => model.Heading)
         </dt>
@@ -55,43 +54,9 @@
             @Html.DisplayFor(model => model.ModifiedUtc)
         </dd>
 
-        @*<p>
-            How do I display all the resources that belong to this thing? public IEnumerable.. 
-        </p>*@
-
     </dl>
 </div>
 
-@*<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Resource.Title)
-        </th>
-        
-        <th>
-            @Html.DisplayNameFor(model => model.Resource.Content)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Resource.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Resource.Content)
-            </td>
-
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ResourceId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ResourceId })
-            </td>
-        </tr>
-    }
-
-</table>*@
 
 <p>
     @Html.ActionLink("Back to List", "Index") |

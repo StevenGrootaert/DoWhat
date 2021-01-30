@@ -27,7 +27,6 @@
             @Html.LabelFor(model => model.TimeAllotted, htmlAttributes: new { @class = "control-label col-md-2"})
             <div class="col-md-10">
                 @Html.DropDownList("TimeAllotted", new List<SelectListItem> 
-                //"TimeAlloted" has to be one word just like the model 
                 {
                     new SelectListItem{ Text="5 min", Value = "5"},
                     new SelectListItem{ Text="15 min", Value = "15"},
@@ -44,7 +43,6 @@
         <div class="form-group"> 
             @Html.LabelFor(model => model.CatagoryId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @*@Html.DropDownList("CatagoryId", (IEnumerable<SelectListItem>(ViewBag.Catagories, "CatagoryId", "Name"), new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.DropDownListFor(model => model.CatagoryId, new SelectList(ViewBag.Catagories, "CatagoryId", "Name"), new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CatagoryId, "", new { @class = "text-danger" })
             </div>

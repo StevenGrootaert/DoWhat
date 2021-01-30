@@ -15,7 +15,6 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ResourceId)
-        @*@Html.HiddenFor(model => model.ThingId) -- This is what set the damn thing to a null value...*@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })

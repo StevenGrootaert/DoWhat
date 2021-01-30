@@ -14,12 +14,6 @@ namespace DoWhat.WebMVC.Controllers
     [Authorize]
     public class ThingController : Controller
     {
-        //private readonly IThingService _thingService;
-        //public ThingController(IThingService thingService)
-        //{
-        //    _thingService = thingService;
-        //}
-
         // GET: Thing/index
         public ActionResult Index()
         {
@@ -43,18 +37,15 @@ namespace DoWhat.WebMVC.Controllers
             return View(model.OrderBy(time => time.TimeAlloted));
         }
 
-        /// -----------------------------------------------------------------------
-        /// this is a lot like the create a thing but we're not saving it?
-        
+        // GET: Thing/SelectThing
         public ActionResult SelectThing()
         {
             var service = CreateThingService();
             ViewBag.Catagories = service.CatagoriesToList();
-            // redirect to action tot the SelectedThingIndex? need to take those submitted values and not save them but pass them
             return View(new ThingSelection());
         }
 
-        
+        // GET: Thing/SelectThing
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult SelectThing(ThingSelection model)
@@ -62,13 +53,9 @@ namespace DoWhat.WebMVC.Controllers
             if (!ModelState.IsValid) return View(model);
             var service = CreateThingService();
             ViewBag.Catagories = service.CatagoriesToList();
-            model.ThingsSelected = service.GetSelectedThing(model); // this line I don't get anymore -- this should fill out the list in the ThingSlection model??
-            //return View(model.OrderBy(time => time.TimeAlloted));
+            model.ThingsSelected = service.GetSelectedThing(model);
             return View(model);
-            //return RedirectToAction("SelectedThingIndex");
         }
-         
-        /// -----------------------------------------------------------------------
 
         // GET: Thing/Create
         public ActionResult Create()

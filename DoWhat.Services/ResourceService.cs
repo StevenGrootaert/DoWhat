@@ -87,7 +87,6 @@ namespace DoWhat.Services
             }
         }
 
-
         // CreateResource ** might be intresting to create a resource within the detail view of a thing
         public bool CreateResource(ResourceCreate model)
         {

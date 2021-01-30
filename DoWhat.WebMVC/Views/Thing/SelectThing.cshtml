@@ -45,8 +45,6 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Find" class="btn btn-default" />
-                @*<input type="submit" value="Find" class="btn btn-default" onclick="location.href='@Url.Action("SelectedThingIndex", "Thing")'"/>*@
-                @*@Html.ActionLink("find", "SelectedThingIndex")*@
             </div>
         </div>
     </div>
@@ -63,9 +61,6 @@
         <th>
             Time (in Min)
         </th>
-        @*<th>
-            Not Done Yet
-        </th>*@
         <th>
             Date Added
         </th>
@@ -84,9 +79,6 @@
             <td>
                 @Html.DisplayFor(modelItem => item.TimeAlloted)
             </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.IsCompleted)
-            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.CreatedUtc)
             </td>

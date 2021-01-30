@@ -121,7 +121,7 @@ namespace DoWhat.WebMVC.Controllers
         // Helper Method
         private CatagoryService CreateCatagoryService()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId()); // this needs to be in each model that calls for it
+            var userId = Guid.Parse(User.Identity.GetUserId()); // this needs to be in each model that calls for it?
             var service = new CatagoryService(userId);
             return service;
         }

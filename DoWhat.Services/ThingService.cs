@@ -84,7 +84,6 @@ namespace DoWhat.Services
             }
         }
         
-        /// -----------------------------------------------------------------------
         public IEnumerable<ThingListByCatagory> GetThingListByCatagory(int id)
         {
             using (var ctx = new ApplicationDbContext())
