@@ -28,7 +28,5 @@ namespace DoWhat.Models.ThingModels
 
         [Display(Name = "Added")]
         public DateTimeOffset CreatedUtc { get; set; }
-
-        public IEnumerable<SelectListItem> Catagories { get; set; }
     }
 }

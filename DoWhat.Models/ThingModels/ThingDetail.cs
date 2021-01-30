@@ -27,19 +27,11 @@ namespace DoWhat.Models.ThingModels
         public int CatagoryId { get; set; }
         public virtual Catagory Catagory { get; set; }
 
-        [Display(Name = "Resources")]    // this doesn't feel right !??  Is this a list of resources?? I want to see the resources in detail view for the thing
-        public int ResourceId { get; set; }
-        public virtual Resource Resource { get; set; }
-
         [Display(Name = "Added")]
         public DateTimeOffset CreatedUtc { get; set; }
 
         [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
-
-
-        public IEnumerable<SelectListItem> Resources { get; set; } // trying to get resources in the details view
-
     }
 
 }

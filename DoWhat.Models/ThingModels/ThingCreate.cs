@@ -22,9 +22,5 @@ namespace DoWhat.Models.ThingModels
 
         [Display(Name = "Category Name")]
         public int CatagoryId { get; set; }
-
-
-        // for the drop down list
-        public IEnumerable<SelectListItem> Catagories { get; set; }
     }
 }

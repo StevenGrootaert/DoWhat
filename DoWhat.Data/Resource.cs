@@ -29,7 +29,5 @@ namespace DoWhat.Data
         public DateTimeOffset CreatedUtc { get; set; }
 
         public DateTimeOffset? ModifiedUtc { get; set; }
-
-
     }
 }

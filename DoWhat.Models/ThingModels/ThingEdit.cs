@@ -24,6 +24,5 @@ namespace DoWhat.Models.ThingModels
 
         [Display(Name = "Category Name")]
         public int CatagoryId { get; set; }
-
     }
 }

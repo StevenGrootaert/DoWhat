@@ -26,9 +26,6 @@ namespace DoWhat.Models.ThingModels
         [Display(Name = "Completed")]
         public bool IsCompleted { get; set; }
 
-
-
-        public IEnumerable<SelectListItem> Catagories { get; set; }
         public IEnumerable<ThingListItem> ThingsSelected { get; set; } = new List<ThingListItem>();
     }
 

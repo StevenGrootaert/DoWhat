@@ -16,6 +16,5 @@ namespace DoWhat.Models.CatagoryModels
 
         [Display(Name = "Catagory Description")]
         public string Description { get; set; }
-
     }
 }

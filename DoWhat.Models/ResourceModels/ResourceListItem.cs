@@ -23,10 +23,8 @@ namespace DoWhat.Models.ResourceModels
         [Display(Name = "Added")]
         public DateTimeOffset CreatedUtc { get; set; }
 
-        [ForeignKey("Thing")]
         [Display(Name = "Thing Id")]
         public int ThingId { get; set; }
         public virtual Thing Thing { get; set; }
-
     }
 }

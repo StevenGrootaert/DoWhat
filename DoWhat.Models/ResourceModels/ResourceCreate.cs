@@ -14,7 +14,6 @@ namespace DoWhat.Models.ResourceModels
     {
         public int ResourceId { get; set; }
 
-        [ForeignKey("Thing")] // added but I don't knwo if I actually need it
         [Display(Name = "Thing")]
         public int ThingId { get; set; }
         public virtual Thing Thing { get; set; }
@@ -26,8 +25,5 @@ namespace DoWhat.Models.ResourceModels
         [Required]
         [MaxLength(1000, ErrorMessage = "Content can not be more than 1000 charaters")]
         public string Content { get; set; }
-
-        // for the drop down lists
-        public IEnumerable<SelectListItem> Things { get; set; }
     }
 }

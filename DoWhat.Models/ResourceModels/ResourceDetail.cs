@@ -19,7 +19,6 @@ namespace DoWhat.Models.ResourceModels
         [Required]
         public string Content { get; set; }
 
-        [ForeignKey("Thing")]
         [Display(Name = "Thing Id")]
         public int ThingId { get; set; }
         public virtual Thing Thing { get; set; }
