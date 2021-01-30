@@ -1,15 +1,11 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-<!-- how to add a favicon? -->
 <div class="jumbotron">
     <h1>Do What ( _____ )</h1>
     <p class="lead">Helping you to overcome descision fatique by doing what needs to be done with the time you have. </p>
-    @*<p><a href="https://asp.net" class="btn btn-primary btn-lg">Do a Thing (Now)  &raquo;</a></p>*@
     <p> @Html.ActionLink("Find a Thing to do", "SelectThing", "Thing", null, new { @class = "btn btn-primary btn-large" }) </p>
-    @* how do I change this pages based if you are logged in or not? This index should look different (or logged in users should have a page) that's different. *@
 </div>
-@* These buttons below should be what a logged in person sees as they add Things and use the app functionally. None logged in user should just see a home page that tells them about the app and examples of how it works etc. *@
 <div class="row">
     <div class="col-md-4">
         <h2>Things to do</h2>
@@ -22,9 +18,9 @@
     </div>
     <div class="col-md-4">
         <h2>Categorize Things</h2>
-        <p>Put your Things in order. Make catagories for different areas in your life to seperate the things that need doing.</p>
+        <p>Put your Things in order. Make categories for different areas in your life to seperate the things that need doing.</p>
         <p>@Html.ActionLink("Category List", "Index", "Catagory", null, new { @class = "btn btn-default btn-large" })  |  
-        @Html.ActionLink("New Catagory", "Create", "Catagory", null, new { @class = "btn btn-default btn-large" })</p>
+        @Html.ActionLink("New Category", "Create", "Catagory", null, new { @class = "btn btn-default btn-large" })</p>
     </div>
     <div class="col-md-4">
         <h2>Stuff about Things</h2>
